@@ -4,9 +4,22 @@ import { siteConfig } from '../../config/siteConfig';
 interface SEOProps {
   title?: string;
   description?: string;
+  /**
+   * Optional. Still supported for existing pages, but not required.
+   */
   keywords?: string;
+  /**
+   * Legacy alias for `ogImage`.
+   */
   image?: string;
+  /**
+   * Legacy alias for `canonicalUrl`.
+   */
   url?: string;
+  ogImage?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  canonicalUrl?: string;
   type?: 'website' | 'article';
 }
 
@@ -14,8 +27,12 @@ export function SEO({
   title,
   description,
   keywords,
-  image = '/og-image.jpg', // Default OG image
+  image,
   url,
+  ogImage,
+  ogTitle,
+  ogDescription,
+  canonicalUrl,
   type = 'website',
 }: SEOProps) {
   const siteTitle = title
@@ -24,7 +41,12 @@ export function SEO({
 
   const siteDescription = description || siteConfig.seo.description;
   const siteKeywords = keywords || siteConfig.seo.keywords;
-  const currentUrl = url || typeof window !== 'undefined' ? window.location.href : '';
+  const canonical =
+    canonicalUrl || url || (typeof window !== 'undefined' ? window.location.href : '');
+
+  const resolvedOgTitle = ogTitle ?? siteTitle;
+  const resolvedOgDescription = ogDescription ?? siteDescription;
+  const resolvedOgImage = ogImage ?? image ?? '/og-image.jpg';
 
   return (
     <Helmet>
@@ -35,23 +57,23 @@ export function SEO({
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={currentUrl} />
-      <meta property="og:title" content={siteTitle} />
-      <meta property="og:description" content={siteDescription} />
-      <meta property="og:image" content={image} />
+      {canonical ? <meta property="og:url" content={canonical} /> : null}
+      <meta property="og:title" content={resolvedOgTitle} />
+      <meta property="og:description" content={resolvedOgDescription} />
+      <meta property="og:image" content={resolvedOgImage} />
       <meta property="og:site_name" content={siteConfig.business.name} />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={currentUrl} />
-      <meta name="twitter:title" content={siteTitle} />
-      <meta name="twitter:description" content={siteDescription} />
-      <meta name="twitter:image" content={image} />
+      {canonical ? <meta name="twitter:url" content={canonical} /> : null}
+      <meta name="twitter:title" content={resolvedOgTitle} />
+      <meta name="twitter:description" content={resolvedOgDescription} />
+      <meta name="twitter:image" content={resolvedOgImage} />
 
       {/* Additional SEO */}
       <meta name="robots" content="index, follow" />
       <meta name="googlebot" content="index, follow" />
-      <link rel="canonical" href={currentUrl} />
+      {canonical ? <link rel="canonical" href={canonical} /> : null}
     </Helmet>
   );
 }

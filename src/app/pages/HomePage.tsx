@@ -12,9 +12,9 @@ export function HomePage() {
   return (
     <>
       <SEO
-        title="Home"
-        description="Greenville's premier personal training gym. Expert trainers, state-of-the-art equipment, and proven results since 1994. Open gym access and personalized training programs."
-        keywords="personal training Greenville SC, gym Greenville, fitness center, strength training, powerlifting, Brit's Brothers Gym"
+        title="Brits Brothers Gym | Boxing & Fitness"
+        description="Elite boxing and fitness training in Greenville. Book your first session today."
+        ogImage="/images/og-home.svg"
       />
       <Hero />
       <Philosophy />
