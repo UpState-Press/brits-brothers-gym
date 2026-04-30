@@ -12,9 +12,9 @@ export function HomePage() {
   return (
     <>
       <SEO
-        title="Brits Brothers Gym | Boxing & Fitness"
-        description="Elite boxing and fitness training in Greenville. Book your first session today."
-        ogImage="/images/og-home.svg"
+        title="Brits Brothers Gym | Strength & Fitness"
+        description="Elite Strength and fitness training in Greenville SC. Book your first session today."
+        ogImage="/images/og-home.jpg"
       />
       <Hero />
       <Philosophy />
