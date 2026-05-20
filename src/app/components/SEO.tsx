@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { siteConfig } from '../../config/siteConfig';
+import { getPublicSiteOrigin, siteConfig } from '../../config/siteConfig';
 
 interface SEOProps {
   title?: string;
@@ -41,12 +41,23 @@ export function SEO({
 
   const siteDescription = description || siteConfig.seo.description;
   const siteKeywords = keywords || siteConfig.seo.keywords;
+  const origin = getPublicSiteOrigin();
   const canonical =
-    canonicalUrl || url || (typeof window !== 'undefined' ? window.location.href : '');
+    canonicalUrl ||
+    url ||
+    (typeof window !== 'undefined'
+      ? origin
+        ? `${origin}${window.location.pathname}${window.location.search}`
+        : window.location.href
+      : '');
 
   const resolvedOgTitle = ogTitle ?? siteTitle;
   const resolvedOgDescription = ogDescription ?? siteDescription;
-  const resolvedOgImage = ogImage ?? image ?? '/og-image.jpg';
+  const resolvedOgImageRaw = ogImage ?? image ?? '/og-image.jpg';
+  const resolvedOgImage =
+    origin && resolvedOgImageRaw.startsWith('/')
+      ? `${origin}${resolvedOgImageRaw}`
+      : resolvedOgImageRaw;
 
   return (
     <Helmet>

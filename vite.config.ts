@@ -31,6 +31,13 @@ export default defineConfig({
     },
   },
 
+  build: {
+    // Prerender (Puppeteer) and some CI browsers must parse the main bundle; keep
+    // output free of ?? / ?. / etc. that older parsers mishandle as "Unexpected token '?'".
+    target: 'es2019',
+    cssTarget: 'chrome61',
+  },
+
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
 })

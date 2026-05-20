@@ -1,16 +1,17 @@
 import { Helmet } from 'react-helmet-async';
-import { siteConfig } from '../../config/siteConfig';
+import { getPublicSiteOrigin, siteConfig } from '../../config/siteConfig';
 
 /**
  * Structured data (JSON-LD) for local business
  * Helps search engines understand the business and show rich results
  */
 export function LocalBusinessSchema() {
+  const origin = getPublicSiteOrigin();
   const schema = {
     "@context": "https://schema.org",
     "@type": "Gym",
     "name": siteConfig.business.name,
-    "image": "/og-image.jpg", // Replace with actual logo/image
+    "image": origin ? `${origin}/og-image.jpg` : "/og-image.jpg",
     "description": siteConfig.seo.description,
     "address": {
       "@type": "PostalAddress",
@@ -25,7 +26,9 @@ export function LocalBusinessSchema() {
       "latitude": "34.8454664",
       "longitude": "-82.355276"
     },
-    "url": typeof window !== 'undefined' ? window.location.origin : '',
+    "url":
+      getPublicSiteOrigin() ||
+      (typeof window !== 'undefined' ? window.location.origin : ''),
     "telephone": siteConfig.contact.phone.mainRaw,
     "email": siteConfig.contact.email,
     "priceRange": "$$",

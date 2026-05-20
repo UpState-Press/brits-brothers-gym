@@ -80,5 +80,20 @@ export const siteConfig = {
     title: "Brit's Brothers Gym - Personal Training in Greenville, SC",
     description: "Greenville's premier personal training gym. Expert trainers, state-of-the-art equipment, and proven results since 1994.",
     keywords: "personal training, gym, fitness, Greenville SC, powerlifting, strength training",
+    /** No trailing slash. Used for canonical/OG in prerendered HTML; override with VITE_SITE_ORIGIN on Vercel if needed. */
+    publicSiteUrl: "https://www.britsbrothers.com",
   },
 } as const;
+
+/** Public origin for absolute canonical, og:url, and JSON-LD (avoids 127.0.0.1 during prerender). */
+export function getPublicSiteOrigin(): string {
+  const env = import.meta.env.VITE_SITE_ORIGIN;
+  if (typeof env === "string" && env.trim().length > 0) {
+    return env.trim().replace(/\/$/, "");
+  }
+  const u = siteConfig.seo.publicSiteUrl;
+  if (typeof u === "string" && u.trim().length > 0) {
+    return u.trim().replace(/\/$/, "");
+  }
+  return "";
+}
