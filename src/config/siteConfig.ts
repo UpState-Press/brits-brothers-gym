@@ -83,7 +83,7 @@ export const siteConfig = {
     /** No trailing slash. Used for canonical/OG in prerendered HTML; override with VITE_SITE_ORIGIN on Vercel if needed. */
     publicSiteUrl: "https://www.britsbrothersgym.com",
     /** Served from /public — must exist at build time (no 404). */
-    defaultOgImage: "/images/og-home.svg",
+    defaultOgImage: "/images/og-home.jpg",
   },
 } as const;
 
