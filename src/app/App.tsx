@@ -12,6 +12,7 @@ import { TestimonialsPage } from './pages/TestimonialsPage';
 import { ContactPage } from './pages/ContactPage';
 import { PowerliftingBlogPage } from './pages/PowerliftingBlogPage';
 import { BodybuildingBlogPage } from './pages/BodybuildingBlogPage';
+import { WeightLossBlogPage } from './pages/WeightLossBlogPage';
 import { ResourcesPage } from './pages/ResourcesPage';
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/blog/powerlifting.html" element={<PowerliftingBlogPage />} />
           <Route path="/blog/bodybuilding.html" element={<BodybuildingBlogPage />} />
+          <Route path="/blog/weight-loss.html" element={<WeightLossBlogPage />} />
         </Routes>
         <Footer />
       </div>
