@@ -3,6 +3,53 @@
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "framework": "vite",
+  "redirects": [
+    {
+      "source": "/boxing/",
+      "destination": "/programs/boxing",
+      "statusCode": 301
+    },
+    {
+      "source": "/boxing",
+      "destination": "/programs/boxing",
+      "statusCode": 301
+    },
+    {
+      "source": "/trainers/jake_henderson/",
+      "destination": "/trainers/jake-henderson",
+      "statusCode": 301
+    },
+    {
+      "source": "/trainers/jake_henderson",
+      "destination": "/trainers/jake-henderson",
+      "statusCode": 301
+    },
+    {
+      "source": "/trainers/guy_mosley/",
+      "destination": "/trainers/guy-mosley",
+      "statusCode": 301
+    },
+    {
+      "source": "/trainers/guy_mosley",
+      "destination": "/trainers/guy-mosley",
+      "statusCode": 301
+    },
+    {
+      "source": "/membership/",
+      "destination": "/membership",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contact",
+      "statusCode": 301
+    },
+    {
+      "source": "/testimonials/",
+      "destination": "/testimonials",
+      "statusCode": 301
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
