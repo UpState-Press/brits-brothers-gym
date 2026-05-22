@@ -24,7 +24,7 @@ export const siteConfig = {
       city: "Greenville",
       state: "SC",
       zip: "29601",
-      full: "301 Airport Rd, Suite K, Greenville, SC",
+      full: "301 Airport Rd, Suite K, Greenville, SC 29601",
     },
   },
 
@@ -82,8 +82,21 @@ export const siteConfig = {
     keywords: "personal training, gym, fitness, Greenville SC, powerlifting, strength training",
     /** No trailing slash. Used for canonical/OG in prerendered HTML; override with VITE_SITE_ORIGIN on Vercel if needed. */
     publicSiteUrl: "https://www.britsbrothers.com",
+    /** Served from /public — must exist at build time (no 404). */
+    defaultOgImage: "/images/og-home.svg",
   },
 } as const;
+
+/** Street + city/state/ZIP for NAP blocks (Contact, Footer, Location). */
+export function formatAddressLines(includeBuilding = false): string[] {
+  const { street, building, city, state, zip } = siteConfig.contact.address;
+  const lines = [street];
+  if (includeBuilding && building) {
+    lines.push(building);
+  }
+  lines.push(`${city}, ${state} ${zip}`);
+  return lines;
+}
 
 /** Public origin for absolute canonical, og:url, and JSON-LD (avoids 127.0.0.1 during prerender). */
 export function getPublicSiteOrigin(): string {

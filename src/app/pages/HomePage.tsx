@@ -14,7 +14,7 @@ export function HomePage() {
       <SEO
         title="Brits Brothers Gym | Strength & Fitness"
         description="Elite Strength and fitness training in Greenville SC. Book your first session today."
-        ogImage="/images/og-home.jpg"
+        ogImage="/images/og-home.svg"
       />
       <Hero />
       <Philosophy />

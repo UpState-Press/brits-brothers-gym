@@ -11,7 +11,9 @@ export function LocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "Gym",
     "name": siteConfig.business.name,
-    "image": origin ? `${origin}/og-image.jpg` : "/og-image.jpg",
+    "image": origin
+      ? `${origin}${siteConfig.seo.defaultOgImage}`
+      : siteConfig.seo.defaultOgImage,
     "description": siteConfig.seo.description,
     "address": {
       "@type": "PostalAddress",

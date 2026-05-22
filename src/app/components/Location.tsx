@@ -1,6 +1,7 @@
 import image_d15eda18ea41e9b4c6d7c8d24a445decb714d367 from 'figma:asset/d15eda18ea41e9b4c6d7c8d24a445decb714d367.png'
 import { MapPin, Phone, Navigation as NavIcon } from 'lucide-react';
 import topDivider from 'figma:asset/31fcf544b442943636aba42ea48f9a04dfca2658.png';
+import { formatAddressLines, siteConfig } from '../../config/siteConfig';
 
 interface LocationProps {
   phoneNumber?: string;
@@ -41,7 +42,7 @@ export function Location({ phoneNumber = '(864) 553-3821', topPadding = 'pt-48' 
           <div className="lg:col-span-2 max-w-full">
             <div className="relative aspect-[4/3] bg-[#121214] overflow-hidden w-full">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3268.9999999999995!2d-82.355276!3d34.8454664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbf4718581adc0d17!2sBrit's%20Brothers%20Gym!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                src={siteConfig.maps.embedUrl}
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
@@ -64,9 +65,12 @@ export function Location({ phoneNumber = '(864) 553-3821', topPadding = 'pt-48' 
                     ADDRESS
                   </h3>
                   <p className="text-[#a7a7ad] text-lg leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                    301 Airport Rd, Suite K<br />
-                    "The Junction"<br />
-                    Greenville, SC
+                    {formatAddressLines(true).map((line) => (
+                      <span key={line}>
+                        {line}
+                        <br />
+                      </span>
+                    ))}
                   </p>
                 </div>
               </div>
@@ -90,7 +94,7 @@ export function Location({ phoneNumber = '(864) 553-3821', topPadding = 'pt-48' 
               </div>
 
               <a 
-                href="https://www.google.com/maps/place/Brit's+Brothers+Gym/@34.8454664,-82.355276,15z/data=!4m5!3m4!1s0x0:0xbf4718581adc0d17!8m2!3d34.8454664!4d-82.355276" 
+                href={siteConfig.maps.directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 bg-[#24186e]/40 text-[#fdfdff] px-8 py-4 hover:bg-[#24186e]/60 transition-all tracking-wider w-full"

@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { formatAddressLines, siteConfig } from '../../config/siteConfig';
 import { SEO } from '../components/SEO';
 import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
 import { FinalCTA } from '../components/FinalCTA';
@@ -61,8 +62,12 @@ export function ContactPage() {
                       LOCATION
                     </h3>
                     <p className="text-[#a7a7ad] text-lg" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                      123 Main Street<br />
-                      Greenville, SC 29601
+                      {formatAddressLines().map((line) => (
+                        <span key={line}>
+                          {line}
+                          <br />
+                        </span>
+                      ))}
                     </p>
                   </div>
                 </div>
@@ -76,8 +81,8 @@ export function ContactPage() {
                     <h3 className="text-[#fdfdff] text-xl mb-2 tracking-wide" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
                       PHONE
                     </h3>
-                    <a href="tel:1-864-553-3821" className="text-[#a7a7ad] text-lg hover:text-[#cc1e23] transition-colors" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                      (864) 553-3821
+                    <a href={`tel:${siteConfig.contact.phone.mainRaw}`} className="text-[#a7a7ad] text-lg hover:text-[#cc1e23] transition-colors" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+                      {siteConfig.contact.phone.main}
                     </a>
                   </div>
                 </div>
@@ -91,8 +96,8 @@ export function ContactPage() {
                     <h3 className="text-[#fdfdff] text-xl mb-2 tracking-wide" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
                       EMAIL
                     </h3>
-                    <a href="mailto:info@britsbrothers.com" className="text-[#a7a7ad] text-lg hover:text-[#cc1e23] transition-colors" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                      info@britsbrothers.com
+                    <a href={`mailto:${siteConfig.contact.email}`} className="text-[#a7a7ad] text-lg hover:text-[#cc1e23] transition-colors" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+                      {siteConfig.contact.email}
                     </a>
                   </div>
                 </div>

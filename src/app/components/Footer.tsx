@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom';
 import image_37021cebd2b33050505f81cf47d1c80f523c66e3 from 'figma:asset/37021cebd2b33050505f81cf47d1c80f523c66e3.png'
 import { Instagram, Youtube, Mail } from 'lucide-react';
-import footerDivider from 'figma:asset/b1023ee0a637f630e98d4d95adbf46604fca23d0.png';
+import { formatAddressLines, siteConfig } from '../../config/siteConfig';
+
+const socialLinks = [
+  { key: 'instagram' as const, icon: Instagram, url: siteConfig.social.instagram },
+  { key: 'youtube' as const, icon: Youtube, url: siteConfig.social.youtube },
+].filter((item) => item.url.trim().length > 0);
+
+const addressLines = formatAddressLines();
 
 export function Footer() {
   return (
@@ -31,14 +38,13 @@ export function Footer() {
               Voted "Best Trainer of the Upstate" 9 years in a row. Personal training and fitness for strength, stamina, endurance, performance, and health.
             </p>
             <div className="mt-6">
-              <p className="text-[#a7a7ad] text-sm" style={{ fontFamily: "'Work Sans', sans-serif" }}>
-                301 Airport Rd, Suite K
-              </p>
-              <p className="text-[#a7a7ad] text-sm" style={{ fontFamily: "'Work Sans', sans-serif" }}>
-                Greenville, SC
-              </p>
-              <a href="tel:1-864-553-3821" className="text-[#fdfdff] hover:text-[#a7a7ad] text-sm transition-colors" style={{ fontFamily: "'Work Sans', sans-serif" }}>
-                (864) 553-3821
+              {addressLines.map((line) => (
+                <p key={line} className="text-[#a7a7ad] text-sm" style={{ fontFamily: "'Work Sans', sans-serif" }}>
+                  {line}
+                </p>
+              ))}
+              <a href={`tel:${siteConfig.contact.phone.mainRaw}`} className="text-[#fdfdff] hover:text-[#a7a7ad] text-sm transition-colors" style={{ fontFamily: "'Work Sans', sans-serif" }}>
+                {siteConfig.contact.phone.main}
               </a>
             </div>
           </div>
@@ -83,13 +89,21 @@ export function Footer() {
               Connect
             </h4>
             <div className="flex gap-4">
-              <a href="#" className="text-[#a7a7ad] hover:text-[#fdfdff] transition-colors">
-                <Instagram size={20} />
-              </a>
-              <a href="#" className="text-[#a7a7ad] hover:text-[#fdfdff] transition-colors">
-                <Youtube size={20} />
-              </a>
-              <a href="#" className="text-[#a7a7ad] hover:text-[#fdfdff] transition-colors">
+              {socialLinks.map(({ key, icon: Icon, url }) => (
+                <a
+                  key={key}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#a7a7ad] hover:text-[#fdfdff] transition-colors"
+                >
+                  <Icon size={20} />
+                </a>
+              ))}
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                className="text-[#a7a7ad] hover:text-[#fdfdff] transition-colors"
+              >
                 <Mail size={20} />
               </a>
             </div>
@@ -101,14 +115,6 @@ export function Footer() {
           <p className="text-[#a7a7ad] text-xs" style={{ fontFamily: "'Work Sans', sans-serif" }}>
             © 2026 Brits Brothers. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <a href="#" className="text-[#a7a7ad] hover:text-[#fdfdff] text-xs transition-colors" style={{ fontFamily: "'Work Sans', sans-serif" }}>
-              Privacy Policy
-            </a>
-            <a href="#" className="text-[#a7a7ad] hover:text-[#fdfdff] text-xs transition-colors" style={{ fontFamily: "'Work Sans', sans-serif" }}>
-              Terms of Service
-            </a>
-          </div>
         </div>
       </div>
     </footer>

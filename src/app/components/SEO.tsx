@@ -53,7 +53,8 @@ export function SEO({
 
   const resolvedOgTitle = ogTitle ?? siteTitle;
   const resolvedOgDescription = ogDescription ?? siteDescription;
-  const resolvedOgImageRaw = ogImage ?? image ?? '/og-image.jpg';
+  const resolvedOgImageRaw =
+    ogImage ?? image ?? siteConfig.seo.defaultOgImage;
   const resolvedOgImage =
     origin && resolvedOgImageRaw.startsWith('/')
       ? `${origin}${resolvedOgImageRaw}`
