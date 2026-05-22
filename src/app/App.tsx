@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ScrollToTop } from './components/ScrollToTop';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
 import { LocalBusinessSchema } from './components/LocalBusinessSchema';
@@ -13,6 +14,7 @@ import { ContactPage } from './pages/ContactPage';
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <LocalBusinessSchema />
       <div className="min-h-screen bg-[#121214] text-[#fdfdff]">
         <Navigation />
