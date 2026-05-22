@@ -3,7 +3,7 @@ import communityImg from 'figma:asset/3799d12cd62241866262f9f9287858c1d8c05e9a.p
 import precisionImg from 'figma:asset/9aefc74dc7c086183afb398675c3364d683a0d55.png';
 import intensityImg from 'figma:asset/7e7d8fcece4ef15465008a2479b849299d2b5f73.png';
 import excellenceImg from 'figma:asset/dec401c7b51859c231f91797f3cd149d61e2dfb7.png';
-import quoteBackgroundImg from 'figma:asset/7f1fd8efb037ca257503c74b0292f712144d1b51.png';
+import quoteBackgroundImg from 'figma:asset/7f1fd8efb037ca257503c74b0292f712144d1b51.webp';
 import bulldogIcon from 'figma:asset/523e93d18273d7b5d4a5c061c39e8a0a9c62b496.png';
 
 export function Philosophy() {

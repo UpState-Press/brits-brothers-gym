@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react';
-import heroImage from 'figma:asset/b9998cd4dac15b527e6a0d9dcc4f633747e64dd4.png';
-import quoteBoxImage from 'figma:asset/4b3a5063dfc3a839ebe8422ee2fd3f5827333cde.png';
+import heroImage from 'figma:asset/b9998cd4dac15b527e6a0d9dcc4f633747e64dd4.webp';
+import quoteBoxImage from 'figma:asset/4b3a5063dfc3a839ebe8422ee2fd3f5827333cde.webp';
 import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
 
 export function Hero() {

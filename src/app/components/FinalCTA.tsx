@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react';
-import heroImage from 'figma:asset/b9998cd4dac15b527e6a0d9dcc4f633747e64dd4.png';
+import heroImage from 'figma:asset/b9998cd4dac15b527e6a0d9dcc4f633747e64dd4.webp';
 
 export function FinalCTA() {
   return (

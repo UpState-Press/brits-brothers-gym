@@ -5,7 +5,7 @@ import { SEO } from '../components/SEO';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
 import evanImg from 'figma:asset/9ff16f64cc6a43ca988b5db2965c1c52efe2df2e.png';
-import boxingHeroImage from '../../imports/boxing_page_banner.jpg';
+import boxingHeroImage from '../../imports/boxing_page_banner.webp';
 import boxing1 from '../../imports/boxing-1.jpg';
 import boxing2 from '../../imports/boxing-2.jpg';
 import boxing3 from '../../imports/boxing-3.jpg';
