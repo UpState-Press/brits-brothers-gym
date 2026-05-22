@@ -17,7 +17,7 @@ export const siteConfig = {
       boxing: "(864) 607-4025",
       boxingRaw: "1-864-607-4025",
     },
-    email: "info@britsbrothersgym.com",
+    email: "britsbrothersgym@gmail.com",
     address: {
       street: "301 Airport Rd, Suite K",
       building: '"The Junction"',
