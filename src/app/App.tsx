@@ -12,6 +12,7 @@ import { TestimonialsPage } from './pages/TestimonialsPage';
 import { ContactPage } from './pages/ContactPage';
 import { PowerliftingBlogPage } from './pages/PowerliftingBlogPage';
 import { BodybuildingBlogPage } from './pages/BodybuildingBlogPage';
+import { ResourcesPage } from './pages/ResourcesPage';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/programs/boxing" element={<BoxingPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/blog/powerlifting.html" element={<PowerliftingBlogPage />} />
           <Route path="/blog/bodybuilding.html" element={<BodybuildingBlogPage />} />
         </Routes>

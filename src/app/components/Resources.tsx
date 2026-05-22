@@ -1,28 +1,39 @@
 import { FileText } from 'lucide-react';
-import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
 import nutritionPdf from '../../imports/20-Day-Nutrition-Plan.pdf';
 
-export function Resources() {
+type ResourcesProps = {
+  /** When false, omit the large section header (e.g. on /resources page hero). */
+  includeSectionHeader?: boolean;
+};
+
+export function Resources({ includeSectionHeader = true }: ResourcesProps) {
   return (
     <section className="relative py-20 bg-[#121214] overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="text-[#cc1e23] text-sm md:text-base tracking-[0.3em] uppercase block mb-4" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}>
-            Learn More
-          </span>
+        {includeSectionHeader ? (
+          <div className="text-center mb-16">
+            <span
+              className="text-[#cc1e23] text-sm md:text-base tracking-[0.3em] uppercase block mb-4"
+              style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}
+            >
+              Learn More
+            </span>
 
-          <h2 className="text-[#fdfdff] text-5xl md:text-6xl lg:text-7xl mb-8 leading-tight tracking-tight" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-            RESOURCES
-          </h2>
-        </div>
+            <h2
+              className="text-[#fdfdff] text-5xl md:text-6xl lg:text-7xl mb-8 leading-tight tracking-tight"
+              style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}
+            >
+              RESOURCES
+            </h2>
+          </div>
+        ) : null}
 
         <div className="grid md:grid-cols-3 gap-6 md:gap-8 overflow-hidden">
           {/* Video 1 */}
           <div className="bg-[#1c1c1e] min-w-0">
             <div className="relative aspect-video bg-[#121214] overflow-hidden">
               <iframe
-                title="vimeo-player"
+                title="Brit's Brothers training tutorial video 1"
                 src="https://player.vimeo.com/video/67156563?h=45b1fa85f8"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
@@ -37,7 +48,7 @@ export function Resources() {
           <div className="bg-[#1c1c1e] min-w-0">
             <div className="relative aspect-video bg-[#121214] overflow-hidden">
               <iframe
-                title="vimeo-player"
+                title="Brit's Brothers training tutorial video 2"
                 src="https://player.vimeo.com/video/67156564?h=b78126b9c8"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"

@@ -76,6 +76,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/resources" className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm" style={{ fontFamily: "'Work Sans', sans-serif" }}>
+                  Resources
+                </Link>
+              </li>
+              <li>
                 <Link to="/contact" className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm" style={{ fontFamily: "'Work Sans', sans-serif" }}>
                   Contact
                 </Link>
