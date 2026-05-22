@@ -47,8 +47,8 @@ export function SEO({
     url ||
     (typeof window !== 'undefined'
       ? origin
-        ? `${origin}${window.location.pathname}${window.location.search}`
-        : window.location.href
+        ? `${origin}${window.location.pathname}`
+        : window.location.href.split('?')[0]
       : '');
 
   const resolvedOgTitle = ogTitle ?? siteTitle;

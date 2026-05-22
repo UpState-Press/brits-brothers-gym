@@ -1,3 +1,4 @@
+import { type FormEvent } from 'react';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { formatAddressLines, siteConfig } from '../../config/siteConfig';
 import { SEO } from '../components/SEO';
@@ -5,6 +6,30 @@ import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b1
 import { FinalCTA } from '../components/FinalCTA';
 import { FacilityHours } from '../components/FacilityHours';
 import { Location } from '../components/Location';
+
+const MAILTO_SUBJECT = "New website lead from Brit's Brothers Gym";
+
+function handleContactFormSubmit(event: FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const data = new FormData(form);
+  const name = String(data.get('name') ?? '').trim();
+  const email = String(data.get('email') ?? '').trim();
+  const phone = String(data.get('phone') ?? '').trim();
+  const message = String(data.get('message') ?? '').trim();
+
+  const body = [
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Phone: ${phone || '(not provided)'}`,
+    '',
+    'Message:',
+    message,
+  ].join('\n');
+
+  const mailto = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(MAILTO_SUBJECT)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailto;
+}
 
 export function ContactPage() {
   return (
@@ -127,7 +152,15 @@ export function ContactPage() {
                 SEND A MESSAGE
               </h2>
 
-              <form className="space-y-6">
+              <p
+                className="text-[#a7a7ad] text-sm leading-relaxed mb-6"
+                style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}
+              >
+                Online form delivery is being finalized. If your email app does not open, please call{' '}
+                {siteConfig.contact.phone.main} or email {siteConfig.contact.email}.
+              </p>
+
+              <form className="space-y-6" onSubmit={handleContactFormSubmit} noValidate>
                 <div>
                   <label htmlFor="name" className="block text-[#fdfdff] text-sm mb-2 tracking-wide uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
                     Name
