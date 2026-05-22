@@ -182,7 +182,7 @@ After deploying, you **MUST** complete these steps:
 
 ### 1. Update SEO Files ⚠️ CRITICAL
 **sitemap.xml:**
-- Replace `https://www.britsbrothers.com` with actual domain
+- Replace `https://www.britsbrothersgym.com` with actual domain
 - Update all `<lastmod>` dates to current date
 
 **robots.txt:**

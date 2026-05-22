@@ -17,7 +17,7 @@ export const siteConfig = {
       boxing: "(864) 607-4025",
       boxingRaw: "1-864-607-4025",
     },
-    email: "info@britsbrothers.com",
+    email: "info@britsbrothersgym.com",
     address: {
       street: "301 Airport Rd, Suite K",
       building: '"The Junction"',
@@ -81,7 +81,7 @@ export const siteConfig = {
     description: "Greenville's premier personal training gym. Expert trainers, state-of-the-art equipment, and proven results since 1994.",
     keywords: "personal training, gym, fitness, Greenville SC, powerlifting, strength training",
     /** No trailing slash. Used for canonical/OG in prerendered HTML; override with VITE_SITE_ORIGIN on Vercel if needed. */
-    publicSiteUrl: "https://www.britsbrothers.com",
+    publicSiteUrl: "https://www.britsbrothersgym.com",
     /** Served from /public — must exist at build time (no 404). */
     defaultOgImage: "/images/og-home.svg",
   },

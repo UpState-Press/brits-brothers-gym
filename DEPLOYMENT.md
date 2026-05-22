@@ -19,7 +19,7 @@ pnpm preview
 After deployment, you MUST update these files with your actual domain:
 
 **`/public/sitemap.xml`**
-- Replace all instances of `https://www.britsbrothers.com` with your actual domain
+- Replace all instances of `https://www.britsbrothersgym.com` with your actual domain
 - Update `<lastmod>` dates to the current date (format: YYYY-MM-DD)
 
 **`/public/robots.txt`**
@@ -78,7 +78,7 @@ Vercel is optimized for Vite applications and offers excellent performance.
 
 5. **Add custom domain** (optional)
    - Go to Project Settings → Domains
-   - Add your custom domain (e.g., `www.britsbrothers.com`)
+   - Add your custom domain (e.g., `www.britsbrothersgym.com`)
    - Follow DNS configuration instructions
    - Vercel automatically provisions SSL certificate
 
@@ -186,7 +186,7 @@ After your site is live, complete these critical SEO and marketing steps:
 **Update sitemap.xml**
 ```bash
 # Replace placeholder domain with your actual domain
-# Example: https://www.britsbrothers.com
+# Example: https://www.britsbrothersgym.com
 ```
 
 **Update robots.txt**

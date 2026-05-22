@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!--
-    IMPORTANT: Replace "https://www.britsbrothers.com" with your actual domain after deployment
+    IMPORTANT: Replace "https://www.britsbrothersgym.com" with your actual domain after deployment
     Update <lastmod> dates when content changes
   -->
 
   <!-- Homepage -->
   <url>
-    <loc>https://www.britsbrothers.com/</loc>
+    <loc>https://www.britsbrothersgym.com/</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -15,7 +15,7 @@
 
   <!-- Membership Page -->
   <url>
-    <loc>https://www.britsbrothers.com/membership</loc>
+    <loc>https://www.britsbrothersgym.com/membership</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -23,7 +23,7 @@
 
   <!-- Trainers Page -->
   <url>
-    <loc>https://www.britsbrothers.com/trainers</loc>
+    <loc>https://www.britsbrothersgym.com/trainers</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -31,14 +31,14 @@
 
   <!-- Trainer Detail Pages -->
   <url>
-    <loc>https://www.britsbrothers.com/trainers/jake-henderson</loc>
+    <loc>https://www.britsbrothersgym.com/trainers/jake-henderson</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.britsbrothers.com/trainers/guy-mosley</loc>
+    <loc>https://www.britsbrothersgym.com/trainers/guy-mosley</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -46,7 +46,7 @@
 
   <!-- Programs -->
   <url>
-    <loc>https://www.britsbrothers.com/programs/boxing</loc>
+    <loc>https://www.britsbrothersgym.com/programs/boxing</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -54,7 +54,7 @@
 
   <!-- Testimonials -->
   <url>
-    <loc>https://www.britsbrothers.com/testimonials</loc>
+    <loc>https://www.britsbrothersgym.com/testimonials</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -62,7 +62,7 @@
 
   <!-- Contact -->
   <url>
-    <loc>https://www.britsbrothers.com/contact</loc>
+    <loc>https://www.britsbrothersgym.com/contact</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>

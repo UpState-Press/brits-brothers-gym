@@ -134,7 +134,7 @@ Verified heading hierarchy:
 After deploying to production, you MUST:
 
 1. **Update sitemap.xml**
-   - Replace `https://www.britsbrothers.com` with actual domain
+   - Replace `https://www.britsbrothersgym.com` with actual domain
    - Update `<lastmod>` dates to current date
 
 2. **Update robots.txt**
