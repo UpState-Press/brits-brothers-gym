@@ -10,7 +10,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import http from 'node:http'
 import { fileURLToPath } from 'node:url'
-import puppeteer from 'puppeteer'
+import puppeteer from 'puppeteer-core'
+import chromium from '@sparticuz/chromium'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, '..')
@@ -58,6 +59,77 @@ function sendFile(res, filePath, requestPathForCache) {
   }
   res.writeHead(200, { 'Content-Type': type })
   fs.createReadStream(filePath).pipe(res)
+}
+
+const SANDBOX_ARGS = [
+  '--no-sandbox',
+  '--disable-setuid-sandbox',
+  '--disable-dev-shm-usage',
+  '--disable-gpu',
+]
+
+function isVercelBuild() {
+  return process.env.VERCEL === '1'
+}
+
+async function resolveLocalExecutablePath() {
+  if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+    const custom = process.env.PUPPETEER_EXECUTABLE_PATH
+    if (!fs.existsSync(custom)) {
+      throw new Error(`PUPPETEER_EXECUTABLE_PATH does not exist: ${custom}`)
+    }
+    return custom
+  }
+
+  try {
+    const { computeSystemExecutablePath } = await import('@puppeteer/browsers')
+    return computeSystemExecutablePath({
+      browser: 'chrome',
+      channel: 'stable',
+    })
+  } catch {
+    // Fall through to well-known install locations.
+  }
+
+  const candidates = [
+    process.platform === 'win32' &&
+      'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+    process.platform === 'win32' &&
+      'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+    process.platform === 'darwin' &&
+      '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+    '/usr/bin/google-chrome-stable',
+    '/usr/bin/google-chrome',
+    '/usr/bin/chromium-browser',
+    '/usr/bin/chromium',
+  ].filter(Boolean)
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) return candidate
+  }
+
+  throw new Error(
+    'Could not find a local Chrome/Chromium binary for prerender. ' +
+      'Install Google Chrome or set PUPPETEER_EXECUTABLE_PATH.',
+  )
+}
+
+async function launchBrowser() {
+  if (isVercelBuild()) {
+    chromium.setGraphicsMode = false
+    return puppeteer.launch({
+      args: [...chromium.args, ...SANDBOX_ARGS],
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+    })
+  }
+
+  return puppeteer.launch({
+    headless: true,
+    executablePath: await resolveLocalExecutablePath(),
+    args: SANDBOX_ARGS,
+  })
 }
 
 function createSpaStaticServer() {
@@ -115,15 +187,7 @@ async function main() {
     server.on('error', reject)
   })
 
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage',
-      '--disable-gpu',
-    ],
-  })
+  const browser = await launchBrowser()
 
   try {
     const page = await browser.newPage()
