@@ -10,6 +10,7 @@ import { TrainerDetailPage } from './pages/TrainerDetailPage';
 import { BoxingPage } from './pages/BoxingPage';
 import { TestimonialsPage } from './pages/TestimonialsPage';
 import { ContactPage } from './pages/ContactPage';
+import { PowerliftingBlogPage } from './pages/PowerliftingBlogPage';
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/programs/boxing" element={<BoxingPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/blog/powerlifting.html" element={<PowerliftingBlogPage />} />
         </Routes>
         <Footer />
       </div>

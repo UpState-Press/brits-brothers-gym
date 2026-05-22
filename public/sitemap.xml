@@ -60,6 +60,14 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- Legacy blog / topical SEO -->
+  <url>
+    <loc>https://www.britsbrothersgym.com/blog/powerlifting.html</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Contact -->
   <url>
     <loc>https://www.britsbrothersgym.com/contact</loc>
