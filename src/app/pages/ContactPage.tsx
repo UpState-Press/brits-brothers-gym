@@ -1,4 +1,4 @@
-import { type FormEvent } from 'react';
+import { type FormEvent, useState } from 'react';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { formatAddressLines, siteConfig } from '../../config/siteConfig';
 import { SEO } from '../components/SEO';
@@ -7,31 +7,53 @@ import { FinalCTA } from '../components/FinalCTA';
 import { FacilityHours } from '../components/FacilityHours';
 import { Location } from '../components/Location';
 
-const MAILTO_SUBJECT = "New website lead from Brit's Brothers Gym";
+const FORM_SUBJECT = "New website lead from Brit's Brothers Gym";
+const FORM_ENDPOINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT;
 
-function handleContactFormSubmit(event: FormEvent<HTMLFormElement>) {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const data = new FormData(form);
-  const name = String(data.get('name') ?? '').trim();
-  const email = String(data.get('email') ?? '').trim();
-  const phone = String(data.get('phone') ?? '').trim();
-  const message = String(data.get('message') ?? '').trim();
+const SUCCESS_MESSAGE = 'Thanks — your message has been sent.';
+const ERROR_MESSAGE = `Something went wrong. Please call ${siteConfig.contact.phone.main} or email ${siteConfig.contact.email}.`;
 
-  const body = [
-    `Name: ${name}`,
-    `Email: ${email}`,
-    `Phone: ${phone || '(not provided)'}`,
-    '',
-    'Message:',
-    message,
-  ].join('\n');
-
-  const mailto = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(MAILTO_SUBJECT)}&body=${encodeURIComponent(body)}`;
-  window.location.href = mailto;
-}
+type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
 export function ContactPage() {
+  const [formStatus, setFormStatus] = useState<FormStatus>('idle');
+
+  async function handleContactFormSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (!FORM_ENDPOINT) {
+      console.error(
+        'VITE_CONTACT_FORM_ENDPOINT is not configured. Set it in Vercel (or .env) to your Formspree form URL.',
+      );
+      setFormStatus('error');
+      return;
+    }
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    formData.set('_subject', FORM_SUBJECT);
+
+    setFormStatus('sending');
+
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      });
+
+      if (response.ok) {
+        form.reset();
+        setFormStatus('success');
+        return;
+      }
+
+      setFormStatus('error');
+    } catch {
+      setFormStatus('error');
+    }
+  }
+
   return (
     <>
       <SEO
@@ -156,8 +178,8 @@ export function ContactPage() {
                 className="text-[#a7a7ad] text-sm leading-relaxed mb-6"
                 style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}
               >
-                Online form delivery is being finalized. If your email app does not open, please call{' '}
-                {siteConfig.contact.phone.main} or email {siteConfig.contact.email}.
+                Having trouble submitting the form? Please call {siteConfig.contact.phone.main} or email{' '}
+                {siteConfig.contact.email}.
               </p>
 
               <form className="space-y-6" onSubmit={handleContactFormSubmit} noValidate>
@@ -216,12 +238,33 @@ export function ContactPage() {
                   />
                 </div>
 
+                {formStatus === 'success' ? (
+                  <p
+                    className="text-[#fdfdff] text-sm leading-relaxed"
+                    style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}
+                    role="status"
+                  >
+                    {SUCCESS_MESSAGE}
+                  </p>
+                ) : null}
+
+                {formStatus === 'error' ? (
+                  <p
+                    className="text-[#a7a7ad] text-sm leading-relaxed"
+                    style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}
+                    role="alert"
+                  >
+                    {ERROR_MESSAGE}
+                  </p>
+                ) : null}
+
                 <button
                   type="submit"
+                  disabled={formStatus === 'sending'}
                   className="w-full bg-[#cc1e23] text-[#fdfdff] px-8 py-4 hover:bg-[#a01419] transition-all hover:scale-105 tracking-wider text-lg"
                   style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}
                 >
-                  SEND MESSAGE
+                  {formStatus === 'sending' ? 'Sending...' : 'SEND MESSAGE'}
                 </button>
               </form>
             </div>
