@@ -10,7 +10,7 @@ import { Location } from '../components/Location';
 const FORM_SUBJECT = "New website lead from Brit's Brothers Gym";
 const FORM_ENDPOINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT;
 
-const SUCCESS_MESSAGE = 'Thanks — your message has been sent.';
+const SUCCESS_MESSAGE = 'Thanks — your message has been sent. We’ll follow up soon.';
 const ERROR_MESSAGE = `Something went wrong. Please call ${siteConfig.contact.phone.main} or email ${siteConfig.contact.email}.`;
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
@@ -178,11 +178,28 @@ export function ContactPage() {
                 className="text-[#a7a7ad] text-sm leading-relaxed mb-6"
                 style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}
               >
-                Having trouble submitting the form? Please call {siteConfig.contact.phone.main} or email{' '}
+                Questions about training, membership, or getting started? Send us a message and we&apos;ll
+                follow up soon. You can also call {siteConfig.contact.phone.main} or email{' '}
                 {siteConfig.contact.email}.
               </p>
 
               <form className="space-y-6" onSubmit={handleContactFormSubmit} noValidate>
+                {/* Formspree honeypot — bots that fill this are rejected server-side */}
+                <input
+                  type="text"
+                  name="_gotcha"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  defaultValue=""
+                  style={{
+                    position: 'absolute',
+                    left: '-9999px',
+                    width: '1px',
+                    height: '1px',
+                    overflow: 'hidden',
+                  }}
+                />
                 <div>
                   <label htmlFor="name" className="block text-[#fdfdff] text-sm mb-2 tracking-wide uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
                     Name
