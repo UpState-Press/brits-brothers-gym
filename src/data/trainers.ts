@@ -1,7 +1,7 @@
 import { Dumbbell, Activity, TrendingDown, Gauge, Sparkles, TrendingUp, Brain } from 'lucide-react';
 import ollyImg from '../assets/olly-pierce.webp';
 import jakeImg from '../assets/jake-henderson.webp';
-import guyImg from 'figma:asset/13b8ec6f8c11f6da3a5235a58d7b6129f0e111a6.png';
+import guyImg from '../assets/guy-mosley.webp';
 import ryanImg from '../assets/ryan-mccaffery.webp';
 import haleyImg from '../assets/haley-peterson.webp';
 import heatherImg from '../assets/heather-hetegar.webp';
