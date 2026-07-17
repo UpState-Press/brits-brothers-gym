@@ -14,8 +14,6 @@ export const siteConfig = {
     phone: {
       main: "(864) 553-3821",
       mainRaw: "1-864-553-3821",
-      boxing: "(864) 607-4025",
-      boxingRaw: "1-864-607-4025",
     },
     email: "britsbrothersgym@gmail.com",
     address: {
