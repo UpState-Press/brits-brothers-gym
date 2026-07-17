@@ -190,7 +190,9 @@ export function ConsultationPage() {
         </div>
       </section>
 
-      <Location topPadding="py-32" />
+      {/* Find Us section is #1c1c1e and the consultation section above it is
+          also #1c1c1e, so its top divider uses the matching #1c1c1e shade. */}
+      <Location topPadding="py-32" topDividerShade="light" />
 
       <FinalCTA />
     </>

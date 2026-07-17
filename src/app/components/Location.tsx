@@ -1,4 +1,5 @@
 import image_d15eda18ea41e9b4c6d7c8d24a445decb714d367 from 'figma:asset/d15eda18ea41e9b4c6d7c8d24a445decb714d367.png'
+import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
 import { MapPin, Phone, Navigation as NavIcon } from 'lucide-react';
 import topDivider from 'figma:asset/31fcf544b442943636aba42ea48f9a04dfca2658.png';
 import { formatAddressLines, siteConfig } from '../../config/siteConfig';
@@ -6,19 +7,32 @@ import { formatAddressLines, siteConfig } from '../../config/siteConfig';
 interface LocationProps {
   phoneNumber?: string;
   topPadding?: 'pt-48' | 'py-32';
+  /**
+   * Torn-edge top divider shade. Must match the background of the section
+   * that bleeds into Find Us from above. 'primary' = #121214 (greyDivider,
+   * the default used when a #121214 section precedes it), 'light' = #1c1c1e
+   * (splatterDivider, used when a #1c1c1e section precedes it).
+   */
+  topDividerShade?: 'primary' | 'light';
 }
 
-export function Location({ phoneNumber = '(864) 553-3821', topPadding = 'pt-48' }: LocationProps) {
+export function Location({ phoneNumber = '(864) 553-3821', topPadding = 'pt-48', topDividerShade = 'primary' }: LocationProps) {
   const paddingClass = topPadding === 'pt-48' ? 'pt-48 pb-32' : 'py-32';
+  // greyDivider (#121214) is oriented for a section top as-is; splatterDivider
+  // (#1c1c1e) is authored for a section bottom, so flip it 180 for the top edge.
+  const dividerSrc =
+    topDividerShade === 'light' ? splatterDivider : image_d15eda18ea41e9b4c6d7c8d24a445decb714d367;
+  const dividerClass =
+    topDividerShade === 'light' ? 'w-full h-auto block rotate-180' : 'w-full h-auto block';
 
   return (
     <section id="location" className={`relative ${paddingClass} bg-[#1c1c1e]`}>
       {/* Top Divider */}
       <div className="absolute top-0 left-0 right-0 w-full z-20">
-        <img 
-          src={image_d15eda18ea41e9b4c6d7c8d24a445decb714d367} 
-          alt="" 
-          className="w-full h-auto block"
+        <img
+          src={dividerSrc}
+          alt=""
+          className={dividerClass}
         />
       </div>
 
