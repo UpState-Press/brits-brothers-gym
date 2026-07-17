@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "client": "Brits Brothers Gym",
+    "slug": "brits-brothers-gym",
+    "version": "1.0",
+    "updated": "2026-07-17"
+  },
+  "identity": {
+    "businessName": "Brit's Brothers Gym",
+    "tagline": "Built Brits. Built Different.",
+    "phone": "1-864-553-3821",
+    "email": "britsbrothersgym@gmail.com",
+    "address": {
+      "street": "301 Airport Rd, Suite K",
+      "city": "Greenville",
+      "state": "SC",
+      "zip": "29601",
+      "country": "US"
+    },
+    "socials": {
+      "facebook": "TODO",
+      "instagram": "TODO",
+      "youtube": "TODO",
+      "twitter": "TODO"
+    }
+  },
+  "tokens": {
+    "colors": {
+      "surface": "#121214",
+      "surfaceAlt": "#1c1c1e",
+      "text": "#fdfdff",
+      "accent": "#cc1e23"
+    },
+    "fonts": {
+      "display": {
+        "family": "poster-gothic-atf",
+        "weights": [700],
+        "source": "adobe"
+      },
+      "body": {
+        "family": "Work Sans",
+        "weights": [400, 500, 600, 700],
+        "source": "google"
+      },
+      "accent": {
+        "family": "ltc-goudy-text-pro-shaded",
+        "weights": [400],
+        "source": "adobe"
+      }
+    },
+    "typeScale": "TODO",
+    "radius": "TODO",
+    "spacingUnit": "TODO"
+  },
+  "assets": {
+    "logoPrimary": "src/assets/4094adf8e330be671acfe499d0c85e8a6240fa34.png",
+    "logoMono": "TODO",
+    "logoReverse": "TODO",
+    "favicon": {
+      "ico": "public/favicon.ico",
+      "png16": "public/favicon-16x16.png",
+      "png32": "public/favicon-32x32.png",
+      "appleTouch": "public/apple-touch-icon.png"
+    },
+    "ogImage": "public/images/og-home.jpg"
+  },
+  "imagery": {
+    "driveFolder": "Client Files/Brits Brothers Gym/Branding",
+    "library": [
+      {
+        "path": "src/assets/olly-pierce.webp",
+        "role": "headshot",
+        "tags": ["olly-pierce"]
+      },
+      {
+        "path": "src/assets/jake-henderson.webp",
+        "role": "headshot",
+        "tags": ["jake-henderson"]
+      },
+      {
+        "path": "src/assets/guy-mosley.webp",
+        "role": "headshot",
+        "tags": ["guy-mosley"]
+      },
+      {
+        "path": "src/assets/ryan-mccaffery.webp",
+        "role": "headshot",
+        "tags": ["ryan-mccaffery"]
+      },
+      {
+        "path": "src/assets/haley-peterson.webp",
+        "role": "headshot",
+        "tags": ["haley-peterson"]
+      },
+      {
+        "path": "src/assets/heather-hetegar.webp",
+        "role": "headshot",
+        "tags": ["heather-hetegar"]
+      },
+      {
+        "path": "src/assets/185cb69eec51df2a8ca706e784867b4ab9e15b10.png",
+        "role": "texture",
+        "tags": ["divider", "pairs:surfaceAlt", "fill:#1c1c1c"]
+      },
+      {
+        "path": "src/assets/d15eda18ea41e9b4c6d7c8d24a445decb714d367.png",
+        "role": "texture",
+        "tags": ["divider", "pairs:surface", "fill:#121212"]
+      }
+    ]
+  },
+  "voice": {
+    "tone": "TODO",
+    "bannedWords": [
+      "seamless",
+      "robust",
+      "leverage",
+      "unlock",
+      "elevate",
+      "journey",
+      "delve",
+      "game-changer",
+      "utilize"
+    ],
+    "boilerplate": "TODO"
+  }
+}
