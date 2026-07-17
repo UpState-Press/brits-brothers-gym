@@ -83,11 +83,6 @@ export function LocalBusinessSchema() {
       },
       {
         "@type": "LocationFeatureSpecification",
-        "name": "Boxing",
-        "value": true
-      },
-      {
-        "@type": "LocationFeatureSpecification",
         "name": "Student Training",
         "value": true
       },

@@ -1,12 +1,10 @@
 import image_d15eda18ea41e9b4c6d7c8d24a445decb714d367 from 'figma:asset/d15eda18ea41e9b4c6d7c8d24a445decb714d367.png'
-import { Link } from 'react-router-dom';
-import { Dumbbell, Clock, Users, Target, Apple, BarChart, Key, Award, CheckCircle, Flame, Trophy, TrendingUp, Tag } from 'lucide-react';
+import { Dumbbell, Clock, Users, Target, Apple, BarChart, Key, Award, CheckCircle, Trophy, TrendingUp, Tag } from 'lucide-react';
 import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
 import topDivider from 'figma:asset/31fcf544b442943636aba42ea48f9a04dfca2658.png';
 import bulldogMascot from 'figma:asset/fcf2bd2670737bae9b314ede17a4de33a52ce5da.png';
 import personalTrainingImg from 'figma:asset/b4bbfbf96606cca832238db9347aac290d11a353.png';
 import openGymImg from 'figma:asset/29728ec5260733f5709698e77aae569591079af1.png';
-import boxingImg from 'figma:asset/4f1ee81107c52d3eb227759e2ca2b63d0a92ee3d.png';
 import studentTrainingImg from 'figma:asset/3cf5703f5951b4cab7113203f083c9ecdf17699f.png';
 import strongmanImg from '../../imports/banner-12.jpg';
 
@@ -159,59 +157,6 @@ export function Programs() {
             </div>
           </div>
 
-          {/* Boxing */}
-          <div className="relative overflow-hidden group cursor-pointer">
-            {/* Top Section - Image with Icon & Title */}
-            <div className="relative h-64 overflow-hidden">
-              <img
-                src={boxingImg}
-                alt=""
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-              />
-              {/* Icon & Title Overlay */}
-              <div className="absolute inset-0 flex items-end p-6 bg-gradient-to-t from-[#121214]/80 to-transparent">
-                <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 bg-[#24186e]/40 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[#24186e]/60 transition-colors backdrop-blur-sm">
-                    <Flame className="text-[#fdfdff]" size={28} />
-                  </div>
-                  <h3 className="text-[#fdfdff] text-3xl tracking-wider" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-                    BOXING
-                  </h3>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Section - Content */}
-            <div className="bg-[#1c1c1e]/90 p-8">
-              <p className="text-[#a7a7ad] leading-relaxed text-lg mb-6" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                Real boxing training for fitness and skill. Hit the bag, work the mitts, and build conditioning, footwork, and power.
-              </p>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-start gap-3">
-                  <Target className="text-[#fdfdff] flex-shrink-0 mt-1" size={20} />
-                  <span className="text-[#fdfdff]" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                    Proper boxing fundamentals
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <TrendingUp className="text-[#fdfdff] flex-shrink-0 mt-1" size={20} />
-                  <span className="text-[#fdfdff]" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                    Bag and mitt conditioning
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Users className="text-[#fdfdff] flex-shrink-0 mt-1" size={20} />
-                  <span className="text-[#fdfdff]" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                    All ages welcome
-                  </span>
-                </div>
-              </div>
-              <Link to="/programs/boxing" className="text-[#fdfdff] hover:text-[#a7a7ad] font-bold tracking-wide transition-colors" style={{ fontFamily: "'Work Sans', sans-serif" }}>
-                LEARN MORE →
-              </Link>
-            </div>
-          </div>
-
           {/* Student Training */}
           <div className="relative overflow-hidden group cursor-pointer">
             {/* Top Section - Image with Icon & Title */}
@@ -266,7 +211,7 @@ export function Programs() {
           </div>
 
           {/* Strongman & Powerlifting Equipment */}
-          <div className="relative overflow-hidden group cursor-pointer md:col-span-2">
+          <div className="relative overflow-hidden group cursor-pointer">
             {/* Top Section - Image with Icon & Title */}
             <div className="relative h-64 overflow-hidden">
               <img
@@ -292,7 +237,7 @@ export function Programs() {
               <p className="text-[#a7a7ad] leading-relaxed text-lg mb-6" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
                 Serious gear for serious strength. Squat racks, competition bars, bumper plates, chains, farmers handles, and atlas stones for powerlifters and strongman athletes.
               </p>
-              <div className="grid sm:grid-cols-3 gap-3 mb-6">
+              <div className="space-y-3 mb-6">
                 <div className="flex items-start gap-3">
                   <Dumbbell className="text-[#fdfdff] flex-shrink-0 mt-1" size={20} />
                   <span className="text-[#fdfdff]" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
