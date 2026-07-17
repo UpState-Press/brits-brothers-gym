@@ -1,12 +1,14 @@
 import image_d15eda18ea41e9b4c6d7c8d24a445decb714d367 from 'figma:asset/d15eda18ea41e9b4c6d7c8d24a445decb714d367.png'
-import { Dumbbell, Heart, Clock, Users, Target, Apple, BarChart, Key, Award, CheckCircle, Zap, TrendingUp, Tag } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Dumbbell, Clock, Users, Target, Apple, BarChart, Key, Award, CheckCircle, Flame, Trophy, TrendingUp, Tag } from 'lucide-react';
 import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
 import topDivider from 'figma:asset/31fcf544b442943636aba42ea48f9a04dfca2658.png';
 import bulldogMascot from 'figma:asset/fcf2bd2670737bae9b314ede17a4de33a52ce5da.png';
 import personalTrainingImg from 'figma:asset/b4bbfbf96606cca832238db9347aac290d11a353.png';
 import openGymImg from 'figma:asset/29728ec5260733f5709698e77aae569591079af1.png';
-import cardioBoxingImg from 'figma:asset/4f1ee81107c52d3eb227759e2ca2b63d0a92ee3d.png';
+import boxingImg from 'figma:asset/4f1ee81107c52d3eb227759e2ca2b63d0a92ee3d.png';
 import studentTrainingImg from 'figma:asset/3cf5703f5951b4cab7113203f083c9ecdf17699f.png';
+import strongmanImg from '../../imports/banner-12.jpg';
 
 export function Programs() {
   return (
@@ -25,9 +27,9 @@ export function Programs() {
 
       {/* Bulldog Mascot Background */}
       <div className="absolute inset-y-0 left-0 w-full opacity-10 pointer-events-none overflow-hidden" style={{ mixBlendMode: 'lighten' }}>
-        <img 
-          src={bulldogMascot} 
-          alt="" 
+        <img
+          src={bulldogMascot}
+          alt=""
           className="h-full object-contain object-left md:object-left object-top md:object-center"
           style={{ transform: 'rotate(-8deg) scale(1.3)' }}
         />
@@ -39,11 +41,11 @@ export function Programs() {
           <span className="text-[#a7a7ad] text-sm md:text-base tracking-[0.3em] uppercase block mb-4" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}>
             What We Offer
           </span>
-          
+
           <h2 className="text-[#fdfdff] text-5xl md:text-6xl lg:text-7xl mb-8 leading-tight tracking-tight" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
             TRAINING PROGRAMS
           </h2>
-          
+
           <p className="text-[#a7a7ad] text-xl max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
             From strength to stamina, endurance to performance. Every goal. Every level. One mission: Make you unstoppable.
           </p>
@@ -55,9 +57,9 @@ export function Programs() {
           <div className="relative overflow-hidden group cursor-pointer">
             {/* Top Section - Image with Icon & Title */}
             <div className="relative h-64 overflow-hidden">
-              <img 
-                src={personalTrainingImg} 
-                alt="" 
+              <img
+                src={personalTrainingImg}
+                alt=""
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
               />
               {/* Icon & Title Overlay */}
@@ -76,13 +78,13 @@ export function Programs() {
             {/* Bottom Section - Content */}
             <div className="bg-[#1c1c1e]/90 p-8">
               <p className="text-[#a7a7ad] leading-relaxed text-lg mb-6" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                One-on-one sessions tailored to your goals. Our trainers build custom programs for strength, muscle gain, fat loss, and athletic performance.
+                Private coaching built around your goals. Your trainer writes the plan, checks your form, and keeps you on track every session.
               </p>
               <div className="space-y-3 mb-6">
                 <div className="flex items-start gap-3">
                   <Target className="text-[#fdfdff] flex-shrink-0 mt-1" size={20} />
                   <span className="text-[#fdfdff]" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                    Customized programming
+                    Custom programming
                   </span>
                 </div>
                 <div className="flex items-start gap-3">
@@ -94,7 +96,7 @@ export function Programs() {
                 <div className="flex items-start gap-3">
                   <BarChart className="text-[#fdfdff] flex-shrink-0 mt-1" size={20} />
                   <span className="text-[#fdfdff]" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                    Progress tracking & accountability
+                    Progress tracking and accountability
                   </span>
                 </div>
               </div>
@@ -104,13 +106,13 @@ export function Programs() {
             </div>
           </div>
 
-          {/* Open Gym */}
+          {/* Open Gym Access */}
           <div className="relative overflow-hidden group cursor-pointer">
             {/* Top Section - Image with Icon & Title */}
             <div className="relative h-64 overflow-hidden">
-              <img 
-                src={openGymImg} 
-                alt="" 
+              <img
+                src={openGymImg}
+                alt=""
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
               />
               {/* Icon & Title Overlay */}
@@ -129,7 +131,7 @@ export function Programs() {
             {/* Bottom Section - Content */}
             <div className="bg-[#1c1c1e]/90 p-8">
               <p className="text-[#a7a7ad] leading-relaxed text-lg mb-6" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                Unrestricted access to premium equipment. Train on your schedule with everything you need to build strength and power.
+                Full access to the whole floor on your own schedule. Free weights, racks, and machines whenever the doors are open.
               </p>
               <div className="space-y-3 mb-6">
                 <div className="flex items-start gap-3">
@@ -147,7 +149,7 @@ export function Programs() {
                 <div className="flex items-start gap-3">
                   <CheckCircle className="text-[#fdfdff] flex-shrink-0 mt-1" size={20} />
                   <span className="text-[#fdfdff]" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                    No long-term contracts
+                    No long term contracts
                   </span>
                 </div>
               </div>
@@ -157,23 +159,23 @@ export function Programs() {
             </div>
           </div>
 
-          {/* Cardio Boxing */}
+          {/* Boxing */}
           <div className="relative overflow-hidden group cursor-pointer">
             {/* Top Section - Image with Icon & Title */}
             <div className="relative h-64 overflow-hidden">
-              <img 
-                src={cardioBoxingImg} 
-                alt="" 
+              <img
+                src={boxingImg}
+                alt=""
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
               />
               {/* Icon & Title Overlay */}
               <div className="absolute inset-0 flex items-end p-6 bg-gradient-to-t from-[#121214]/80 to-transparent">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 bg-[#24186e]/40 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[#24186e]/60 transition-colors backdrop-blur-sm">
-                    <Heart className="text-[#fdfdff]" size={28} />
+                    <Flame className="text-[#fdfdff]" size={28} />
                   </div>
                   <h3 className="text-[#fdfdff] text-3xl tracking-wider" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-                    CARDIO BOXING
+                    BOXING
                   </h3>
                 </div>
               </div>
@@ -182,7 +184,7 @@ export function Programs() {
             {/* Bottom Section - Content */}
             <div className="bg-[#1c1c1e]/90 p-8">
               <p className="text-[#a7a7ad] leading-relaxed text-lg mb-6" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                High-intensity boxing sessions for conditioning, agility, and mental toughness. Learn fundamentals while burning serious calories.
+                Real boxing training for fitness and skill. Hit the bag, work the mitts, and build conditioning, footwork, and power.
               </p>
               <div className="space-y-3 mb-6">
                 <div className="flex items-start gap-3">
@@ -192,31 +194,31 @@ export function Programs() {
                   </span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Zap className="text-[#fdfdff] flex-shrink-0 mt-1" size={20} />
+                  <TrendingUp className="text-[#fdfdff] flex-shrink-0 mt-1" size={20} />
                   <span className="text-[#fdfdff]" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                    Agility & focus mitt drills
+                    Bag and mitt conditioning
                   </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Users className="text-[#fdfdff] flex-shrink-0 mt-1" size={20} />
                   <span className="text-[#fdfdff]" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                    All ages 10+
+                    All ages welcome
                   </span>
                 </div>
               </div>
-              <a href="tel:1-864-553-3821" className="text-[#fdfdff] hover:text-[#a7a7ad] font-bold tracking-wide transition-colors" style={{ fontFamily: "'Work Sans', sans-serif" }}>
+              <Link to="/programs/boxing" className="text-[#fdfdff] hover:text-[#a7a7ad] font-bold tracking-wide transition-colors" style={{ fontFamily: "'Work Sans', sans-serif" }}>
                 LEARN MORE →
-              </a>
+              </Link>
             </div>
           </div>
 
-          {/* Student Programs */}
+          {/* Student Training */}
           <div className="relative overflow-hidden group cursor-pointer">
             {/* Top Section - Image with Icon & Title */}
             <div className="relative h-64 overflow-hidden">
-              <img 
-                src={studentTrainingImg} 
-                alt="" 
+              <img
+                src={studentTrainingImg}
+                alt=""
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
               />
               {/* Icon & Title Overlay */}
@@ -235,13 +237,13 @@ export function Programs() {
             {/* Bottom Section - Content */}
             <div className="bg-[#1c1c1e]/90 p-8">
               <p className="text-[#a7a7ad] leading-relaxed text-lg mb-6" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                Build young athletes with proper form, discipline, and work ethic. Middle and high school programs designed for results.
+                Built for middle and high school athletes. Coaches teach proper form, discipline, and work ethic so young lifters get stronger the right way.
               </p>
               <div className="space-y-3 mb-6">
                 <div className="flex items-start gap-3">
                   <TrendingUp className="text-[#fdfdff] flex-shrink-0 mt-1" size={20} />
                   <span className="text-[#fdfdff]" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                    Age-appropriate training
+                    Age appropriate training
                   </span>
                 </div>
                 <div className="flex items-start gap-3">
@@ -254,6 +256,59 @@ export function Programs() {
                   <Tag className="text-[#fdfdff] flex-shrink-0 mt-1" size={20} />
                   <span className="text-[#fdfdff]" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
                     Special student pricing
+                  </span>
+                </div>
+              </div>
+              <a href="#pricing" className="text-[#fdfdff] hover:text-[#a7a7ad] font-bold tracking-wide transition-colors" style={{ fontFamily: "'Work Sans', sans-serif" }}>
+                VIEW PLANS →
+              </a>
+            </div>
+          </div>
+
+          {/* Strongman & Powerlifting Equipment */}
+          <div className="relative overflow-hidden group cursor-pointer md:col-span-2">
+            {/* Top Section - Image with Icon & Title */}
+            <div className="relative h-64 overflow-hidden">
+              <img
+                src={strongmanImg}
+                alt=""
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+              />
+              {/* Icon & Title Overlay */}
+              <div className="absolute inset-0 flex items-end p-6 bg-gradient-to-t from-[#121214]/80 to-transparent">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-[#24186e]/40 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[#24186e]/60 transition-colors backdrop-blur-sm">
+                    <Trophy className="text-[#fdfdff]" size={28} />
+                  </div>
+                  <h3 className="text-[#fdfdff] text-3xl tracking-wider" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+                    STRONGMAN & POWERLIFTING EQUIPMENT
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Section - Content */}
+            <div className="bg-[#1c1c1e]/90 p-8">
+              <p className="text-[#a7a7ad] leading-relaxed text-lg mb-6" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+                Serious gear for serious strength. Squat racks, competition bars, bumper plates, chains, farmers handles, and atlas stones for powerlifters and strongman athletes.
+              </p>
+              <div className="grid sm:grid-cols-3 gap-3 mb-6">
+                <div className="flex items-start gap-3">
+                  <Dumbbell className="text-[#fdfdff] flex-shrink-0 mt-1" size={20} />
+                  <span className="text-[#fdfdff]" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+                    Competition bars and plates
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Award className="text-[#fdfdff] flex-shrink-0 mt-1" size={20} />
+                  <span className="text-[#fdfdff]" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+                    Strongman implements
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="text-[#fdfdff] flex-shrink-0 mt-1" size={20} />
+                  <span className="text-[#fdfdff]" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+                    Powerlifting racks and monolift
                   </span>
                 </div>
               </div>
@@ -277,9 +332,9 @@ export function Programs() {
 
       {/* Bottom Divider */}
       <div className="absolute bottom-0 left-0 right-0 w-full z-0">
-        <img 
-          src={splatterDivider} 
-          alt="" 
+        <img
+          src={splatterDivider}
+          alt=""
           className="w-full h-auto block"
         />
       </div>
