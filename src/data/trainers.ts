@@ -1,9 +1,10 @@
 import { Dumbbell, Activity, TrendingDown, Gauge, Sparkles, TrendingUp, Brain } from 'lucide-react';
-import ollyImg from 'figma:asset/71a3fd745eb94c945f4ce406e85a1001d15858cb.png';
-import kevinImg from 'figma:asset/ab3f53723c71c7e29118780eb4e3efa77482789f.png';
-import jakeImg from 'figma:asset/235044001bd16873d0adc2ca67bded26e497e0ef.png';
+import ollyImg from '../assets/olly-pierce.webp';
+import jakeImg from '../assets/jake-henderson.webp';
 import guyImg from 'figma:asset/13b8ec6f8c11f6da3a5235a58d7b6129f0e111a6.png';
-import evanImg from 'figma:asset/9ff16f64cc6a43ca988b5db2965c1c52efe2df2e.png';
+import ryanImg from '../assets/ryan-mccaffery.webp';
+import haleyImg from '../assets/haley-peterson.webp';
+import heatherImg from '../assets/heather-hetegar.webp';
 import jakeBanner from '../imports/banner-12.jpg';
 import guyBanner from '../imports/banner-10.jpg';
 
@@ -29,21 +30,14 @@ export const trainersData: Trainer[] = [
   {
     name: 'Olly Pierce',
     title: 'Owner & Head Coach',
-    bio: "I have been the owner and operator of Brit's Brothers Gym since 1994. Brit's Brothers Gym has an \"Old School\" environment, coupled with the best personal trainers in Greenville and variety of equipment designed to help you achieve your fitness goals.",
+    bio: "Olly Pierce is the owner and head coach of Brit's Brothers Gym in Greenville, SC. Operating in the area for over 30 years, Pierce and his facility have been widely recognized, winning Best Trainer of the Upstate for nine consecutive years. A bodybuilder since 18, Olly is a resource for lifters of all levels. Olly's primary focus is training bodybuilders and fighters with a specialization in post injury recovery.",
     image: ollyImg,
     slug: null,
   },
   {
-    name: 'Kevin Bain',
-    title: 'Personal Trainer',
-    bio: "As a full time fitness trainer at Brit's Brothers Gym since 1998, I've been fortunate to help a variety of people reach their fitness goals. 30 years of weight training experience has given me the ability to absorb and apply the correct principles needed for any individual to progress to meet their fitness goals.",
-    image: kevinImg,
-    slug: null,
-  },
-  {
     name: 'Jake Henderson',
-    title: 'Personal Trainer',
-    bio: "Jake, who holds a bachelors degree in exercise and sports science, focusing on strength and conditioning from University of South Carolina Upstate, is also an ACSM certified personal trainer. As a competitive powerlifter and strongman for the last ten years, strength training and strength in general has been a passion of Jake's for as long as he can remember.",
+    title: 'Strength & Conditioning Coach, Owner of Carolina Barbell Club',
+    bio: "Jake Henderson is a strength and conditioning coach and owner of Carolina Barbell Club at Brits Brothers Gym. With over 11 years of experience and a Bachelor's degree in Exercise and Sports Science, he specializes in training strength athletes, such as powerlifters and strongman competitors, alongside lifestyle clients. Jake's coaching focuses on practical strength principles to improve athletic performance, long-term health, and daily functionality. Jake works with individuals aged 15 to 75, creating custom programs for goals ranging from competitive lifting to weight loss and mobility. He is dedicated to helping people use fitness for physical and mental self-improvement while fostering a disciplined community at Carolina Barbell Club.",
     image: jakeImg,
     slug: 'jake-henderson',
     quote: "Strength isn't just physical—it's mental, emotional, and spiritual. I help you build all four.",
@@ -108,10 +102,24 @@ export const trainersData: Trainer[] = [
     ]
   },
   {
-    name: 'Evan Pierce',
-    title: 'Cardio Boxing & Yoga',
-    bio: "Being born Olly Pierce's oldest son allowed me to grow up around martial arts and weightlifting. I began consistently training at Killer Bee's Boxing in 2016 and am training to compete in amateur events. I recently became a Level 1 Yoga Fit instructor trainee and am working toward my certification. I look to offer cardio boxing classes and donation only yoga for beginners.",
-    image: evanImg,
+    name: 'Ryan Mccaffery',
+    title: 'Personal Trainer',
+    bio: "Ryan is passionate about helping people build muscle and improve body composition through personalized training. He works with clients of all experience levels and creates programs based on their goals and abilities to make training effective and sustainable. Ryan is committed to providing a high level of coaching and continuously expands his knowledge of biomechanics and proven training principles to help clients train with intent, work hard, stay consistent, and achieve long-term results.",
+    image: ryanImg,
+    slug: null,
+  },
+  {
+    name: 'Haley Peterson',
+    title: 'Personal Trainer',
+    bio: "Haley has been a trainer at Brits for two years. With a focus on wellness and nutrition she works with women to achieve their strength and physique goals.",
+    image: haleyImg,
+    slug: null,
+  },
+  {
+    name: 'Heather Hetegar',
+    title: 'Personal Trainer',
+    bio: "Heather is a NASM and Yoga Certified personal trainer with a focus on helping women over 35 age gracefully with strength training and yoga. Heather's clients gain longevity, confidence and strength as they work in a comfortable environment to achieve their goals.",
+    image: heatherImg,
     slug: null,
   },
 ];

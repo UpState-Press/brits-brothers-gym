@@ -65,7 +65,7 @@ export function Hero() {
               </div>
               <div>
                 <div className="text-[#cc1e23] text-2xl md:text-3xl lg:text-4xl mb-1" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-                  5
+                  6
                 </div>
                 <div className="text-[#a7a7ad] text-[10px] md:text-xs lg:text-sm tracking-wide" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
                   Expert<br />Trainers

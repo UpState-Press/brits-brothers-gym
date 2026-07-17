@@ -1,39 +1,10 @@
 import { BlackAndWhiteImage } from './BlackAndWhiteImage';
-import ollyImg from 'figma:asset/71a3fd745eb94c945f4ce406e85a1001d15858cb.png';
-import kevinImg from 'figma:asset/ab3f53723c71c7e29118780eb4e3efa77482789f.png';
-import jakeImg from 'figma:asset/235044001bd16873d0adc2ca67bded26e497e0ef.png';
-import guyImg from 'figma:asset/13b8ec6f8c11f6da3a5235a58d7b6129f0e111a6.png';
-import evanImg from 'figma:asset/9ff16f64cc6a43ca988b5db2965c1c52efe2df2e.png';
 import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
+import { trainersData } from '../../data/trainers';
 
 export function Trainers() {
-  const trainers = [
-    {
-      name: 'Olly Pierce',
-      title: 'Owner & Head Coach',
-      image: ollyImg
-    },
-    {
-      name: 'Kevin Bain',
-      title: 'Personal Trainer',
-      image: kevinImg
-    },
-    {
-      name: 'Jake Henderson',
-      title: 'Personal Trainer',
-      image: jakeImg
-    },
-    {
-      name: 'Guy Mosley',
-      title: 'Personal Trainer',
-      image: guyImg
-    },
-    {
-      name: 'Evan Pierce',
-      title: 'Cardio Boxing & Yoga',
-      image: evanImg
-    }
-  ];
+  // Single source of truth so the homepage grid stays in sync with the roster.
+  const trainers = trainersData.map(({ name, title, image }) => ({ name, title, image }));
 
   return (
     <section id="trainers" className="relative pt-48 pb-20 bg-[#121214]">
