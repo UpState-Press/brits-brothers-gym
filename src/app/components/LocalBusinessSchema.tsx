@@ -83,12 +83,17 @@ export function LocalBusinessSchema() {
       },
       {
         "@type": "LocationFeatureSpecification",
-        "name": "Cardio Boxing",
+        "name": "Boxing",
         "value": true
       },
       {
         "@type": "LocationFeatureSpecification",
-        "name": "Yoga Classes",
+        "name": "Student Training",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Strongman & Powerlifting Equipment",
         "value": true
       }
     ]

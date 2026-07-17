@@ -23,9 +23,9 @@ export function BoxingPage() {
   return (
     <>
       <SEO
-        title="Cardio Boxing & Yoga Classes"
-        description="Cardio boxing and yoga classes in Greenville, SC. Train with experienced instructors for improved fitness, strength, and flexibility. All skill levels welcome."
-        keywords="cardio boxing Greenville SC, boxing classes, yoga classes Greenville, fitness boxing, beginner boxing"
+        title="Boxing & Yoga Classes"
+        description="Boxing and yoga classes in Greenville, SC. Train with experienced instructors for improved fitness, strength, and flexibility. All skill levels welcome."
+        keywords="boxing Greenville SC, boxing classes, yoga classes Greenville, fitness boxing, beginner boxing"
       />
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#121214] pt-24">
