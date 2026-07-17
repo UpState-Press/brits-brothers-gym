@@ -12,8 +12,8 @@ export function HomePage() {
   return (
     <>
       <SEO
-        title="Brits Brothers Gym | Strength & Fitness"
-        description="Elite Strength and fitness training in Greenville SC. Book your first session today."
+        fullTitle="Brit's Brothers Gym | Personal Training & Old School Strength in Greenville, SC"
+        description="Greenville's old school gym since 1994. Personal training, open gym access, boxing, and serious strongman and powerlifting equipment at Brit's Brothers Gym."
         ogImage="/images/og-home.jpg"
       />
       <Hero />

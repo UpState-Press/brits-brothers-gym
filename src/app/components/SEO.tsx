@@ -3,6 +3,11 @@ import { getPublicSiteOrigin, siteConfig } from '../../config/siteConfig';
 
 interface SEOProps {
   title?: string;
+  /**
+   * Exact <title> to use verbatim (no "| Brit's Brothers Gym" suffix).
+   * Takes precedence over `title`. Also seeds og:title / twitter:title.
+   */
+  fullTitle?: string;
   description?: string;
   /**
    * Optional. Still supported for existing pages, but not required.
@@ -25,6 +30,7 @@ interface SEOProps {
 
 export function SEO({
   title,
+  fullTitle,
   description,
   keywords,
   image,
@@ -35,7 +41,9 @@ export function SEO({
   canonicalUrl,
   type = 'website',
 }: SEOProps) {
-  const siteTitle = title
+  const siteTitle = fullTitle
+    ? fullTitle
+    : title
     ? `${title} | ${siteConfig.business.name}`
     : siteConfig.seo.title;
 
