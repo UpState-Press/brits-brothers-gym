@@ -1,0 +1,7 @@
+# Design Notes
+
+## Torn-edge divider system
+
+Sections use exactly **two** background shades: the primary dark `#121214` and the lighter black `#1c1c1e`. There are exactly **two** divider PNGs, one authored per shade, and no third shade of black is ever allowed. The primary-dark divider is `src/assets/d15eda18ea41e9b4c6d7c8d24a445decb714d367.png` (fill `#121212`, imported as `greyDivider` / `image_d15eda18…`) and belongs to `#121214`. The lighter-black divider is `src/assets/185cb69eec51df2a8ca706e784867b4ab9e15b10.png` (fill `#1c1c1c`, imported as `splatterDivider`) and belongs to `#1c1c1e`. (The footer uses its own near-black divider `37021cebd2…` for the `#0a0a0c` footer only; it is not part of this two-shade system.)
+
+**The rule (hard):** a divider's color must match the background of the section it bleeds into. Pick whichever of the two PNGs matches that neighboring shade; if neither matches, **omit the divider entirely** rather than approximating with a new color. When two adjacent sections share a shade, use that shade's divider (it reads as subtle torn texture). **Flip convention:** `greyDivider` is authored for a section top and `splatterDivider` for a section bottom, so add `rotate-180` when placing a divider on the opposite edge (e.g. `splatterDivider` at a section top, or as done on the consultation page where Find Us sits below a `#1c1c1e` section). The success stories / testimonials page is a correct reference implementation of the lighter-black (`splatterDivider`) transitions.
