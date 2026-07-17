@@ -8,7 +8,6 @@ import { HomePage } from './pages/HomePage';
 import { MembershipPage } from './pages/MembershipPage';
 import { TrainersPage } from './pages/TrainersPage';
 import { TrainerDetailPage } from './pages/TrainerDetailPage';
-import { BoxingPage } from './pages/BoxingPage';
 import { TestimonialsPage } from './pages/TestimonialsPage';
 import { ContactPage } from './pages/ContactPage';
 import { ConsultationPage } from './pages/ConsultationPage';
@@ -30,7 +29,6 @@ export default function App() {
           <Route path="/membership" element={<MembershipPage />} />
           <Route path="/trainers" element={<TrainersPage />} />
           <Route path="/trainers/:slug" element={<TrainerDetailPage />} />
-          <Route path="/programs/boxing" element={<BoxingPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/consultation" element={<ConsultationPage />} />

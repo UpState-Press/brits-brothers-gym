@@ -78,7 +78,6 @@ Every route must exist in App.tsx, prerender-routes.json, AND public/sitemap.xml
 /trainers                   Trainer listing
 /trainers/jake-henderson    Trainer detail
 /trainers/guy-mosley        Trainer detail
-/programs/boxing            Boxing program page
 /testimonials               Testimonials
 /resources                  Resources hub
 /blog/powerlifting.html     Legacy SEO authority page (recovered)
@@ -91,7 +90,8 @@ Every route must exist in App.tsx, prerender-routes.json, AND public/sitemap.xml
 ## Redirects (vercel.json)
 
 ```
-/boxing/                    → /programs/boxing        (301)
+/programs/boxing            → /                        (301, boxing removed)
+/boxing/                    → /                        (301, legacy)
 /trainers/jake_henderson/   → /trainers/jake-henderson (301)
 /trainers/guy_mosley/       → /trainers/guy-mosley     (301)
 ```

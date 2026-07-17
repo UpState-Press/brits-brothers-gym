@@ -66,9 +66,6 @@ export function Navigation() {
               )}
             </div>
 
-            <Link to="/programs/boxing" className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
-              Boxing
-            </Link>
             <Link to="/testimonials" className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
               Testimonials
             </Link>
@@ -140,9 +137,6 @@ export function Navigation() {
                 )}
               </div>
 
-              <Link to="/programs/boxing" onClick={() => setIsOpen(false)} className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
-                Boxing
-              </Link>
               <Link to="/testimonials" onClick={() => setIsOpen(false)} className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
                 Testimonials
               </Link>

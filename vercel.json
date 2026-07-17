@@ -5,13 +5,23 @@
   "framework": "vite",
   "redirects": [
     {
+      "source": "/programs/boxing",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/programs/boxing/",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
       "source": "/boxing/",
-      "destination": "/programs/boxing",
+      "destination": "/",
       "statusCode": 301
     },
     {
       "source": "/boxing",
-      "destination": "/programs/boxing",
+      "destination": "/",
       "statusCode": 301
     },
     {

@@ -44,14 +44,6 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Programs -->
-  <url>
-    <loc>https://www.britsbrothersgym.com/programs/boxing</loc>
-    <lastmod>2024-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
   <!-- Testimonials -->
   <url>
     <loc>https://www.britsbrothersgym.com/testimonials</loc>
