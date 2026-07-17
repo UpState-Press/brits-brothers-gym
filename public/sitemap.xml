@@ -97,4 +97,12 @@
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Free Consultation -->
+  <url>
+    <loc>https://www.britsbrothersgym.com/consultation</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>

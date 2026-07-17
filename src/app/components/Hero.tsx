@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import heroImage from 'figma:asset/b9998cd4dac15b527e6a0d9dcc4f633747e64dd4.webp';
 import quoteBoxImage from 'figma:asset/4b3a5063dfc3a839ebe8422ee2fd3f5827333cde.webp';
 import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
@@ -35,21 +36,27 @@ export function Hero() {
 
             <p className="text-[#a7a7ad] text-lg md:text-xl mb-8 leading-relaxed max-w-xl" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>Proven training that delivers results.<span className="text-[#fdfdff] font-bold"> Voted "Best Trainer of the Upstate" 9 years running.</span></p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <a 
-                href="#pricing" 
-                className="group bg-[#cc1e23] text-[#fdfdff] px-10 py-5 hover:bg-[#a01419] transition-all hover:scale-105 flex items-center justify-center gap-3 tracking-wider text-lg" 
+            <div className="flex flex-col sm:flex-row gap-4 mb-4">
+              <Link
+                to="/consultation"
+                className="group bg-[#cc1e23] text-[#fdfdff] px-10 py-5 hover:bg-[#a01419] transition-all hover:scale-105 flex items-center justify-center gap-3 tracking-wider text-lg"
                 style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}
               >
-                Start Training
+                Book a Free Consultation
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-              </a>
-              <a 
-                href="tel:1-864-553-3821" 
-                className="bg-transparent text-[#fdfdff] px-10 py-5 hover:bg-[#cc1e23]/10 transition-all flex items-center justify-center gap-3 tracking-wider text-lg" 
+              </Link>
+              <a
+                href="tel:1-864-553-3821"
+                className="bg-transparent text-[#fdfdff] px-10 py-5 hover:bg-[#cc1e23]/10 transition-all flex items-center justify-center gap-3 tracking-wider text-lg"
                 style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}
               >
                 Call Now
+              </a>
+            </div>
+
+            <div className="mb-8">
+              <a href="#pricing" className="text-[#a7a7ad] hover:text-[#fdfdff] text-sm tracking-wide uppercase transition-colors" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
+                View membership and pricing →
               </a>
             </div>
 

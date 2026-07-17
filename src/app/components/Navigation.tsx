@@ -72,6 +72,9 @@ export function Navigation() {
             <Link to="/testimonials" className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
               Testimonials
             </Link>
+            <Link to="/membership" className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
+              Membership
+            </Link>
             <Link to="/contact" className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
               Contact
             </Link>
@@ -79,8 +82,8 @@ export function Navigation() {
               <Phone size={16} />
               (864) 553-3821
             </a>
-            <Link to="/membership" className="bg-[#cc1e23] text-[#fdfdff] px-8 py-3 hover:bg-[#a01419] transition-all hover:scale-105 tracking-wider text-sm" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-              Join Now
+            <Link to="/consultation" className="bg-[#cc1e23] text-[#fdfdff] px-8 py-3 hover:bg-[#a01419] transition-all hover:scale-105 tracking-wider text-sm" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+              Free Consultation
             </Link>
           </div>
 
@@ -143,14 +146,17 @@ export function Navigation() {
               <Link to="/testimonials" onClick={() => setIsOpen(false)} className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
                 Testimonials
               </Link>
+              <Link to="/membership" onClick={() => setIsOpen(false)} className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
+                Membership
+              </Link>
               <Link to="/contact" onClick={() => setIsOpen(false)} className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
                 Contact
               </Link>
               <a href="tel:1-864-553-3821" className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
                 (864) 553-3821
               </a>
-              <Link to="/membership" onClick={() => setIsOpen(false)} className="bg-[#cc1e23] text-[#fdfdff] px-6 py-3 hover:bg-[#a01419] transition-colors tracking-wider text-sm w-full text-center block" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-                Join Now
+              <Link to="/consultation" onClick={() => setIsOpen(false)} className="bg-[#cc1e23] text-[#fdfdff] px-6 py-3 hover:bg-[#a01419] transition-colors tracking-wider text-sm w-full text-center block" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+                Book a Free Consultation
               </Link>
             </div>
           </div>

@@ -11,6 +11,7 @@ import { TrainerDetailPage } from './pages/TrainerDetailPage';
 import { BoxingPage } from './pages/BoxingPage';
 import { TestimonialsPage } from './pages/TestimonialsPage';
 import { ContactPage } from './pages/ContactPage';
+import { ConsultationPage } from './pages/ConsultationPage';
 import { PowerliftingBlogPage } from './pages/PowerliftingBlogPage';
 import { BodybuildingBlogPage } from './pages/BodybuildingBlogPage';
 import { WeightLossBlogPage } from './pages/WeightLossBlogPage';
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/programs/boxing" element={<BoxingPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/consultation" element={<ConsultationPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/blog/powerlifting.html" element={<PowerliftingBlogPage />} />
           <Route path="/blog/bodybuilding.html" element={<BodybuildingBlogPage />} />
