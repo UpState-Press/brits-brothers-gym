@@ -1,13 +1,14 @@
-import { Dumbbell, Activity, TrendingDown, Gauge, Sparkles, TrendingUp, Brain, Zap } from 'lucide-react';
+import { Dumbbell, Activity, TrendingDown, Gauge, Sparkles, TrendingUp, Brain, Zap, Apple, HeartPulse } from 'lucide-react';
 import ollyImg from '../assets/olly-pierce.webp';
 import jakeImg from '../assets/jake-henderson.webp';
 import guyImg from '../assets/guy-mosley.webp';
 import ryanImg from '../assets/ryan-mccaffery.webp';
-import haleyImg from '../assets/haley-peterson.webp';
+import haileyImg from '../assets/hailey-peterson.webp';
 import heatherImg from '../assets/heather-hetager.webp';
 import jakeBanner from '../imports/banner-12.jpg';
 import guyBanner from '../imports/banner-10.jpg';
 import ryanBanner from '../assets/banner-ryan-mccaffery.webp';
+import haileyBanner from '../assets/banner-hailey-peterson.webp';
 
 export interface TrainerCard {
   title: string;
@@ -134,11 +135,35 @@ export const trainersData: Trainer[] = [
     ]
   },
   {
-    name: 'Haley Peterson',
+    name: 'Hailey Peterson',
     title: 'Personal Trainer',
-    bio: "Haley has been a trainer at Brits for two years. With a focus on wellness and nutrition she works with women to achieve their strength and physique goals.",
-    image: haleyImg,
-    slug: null,
+    bio: "Hailey has been a trainer at Brits for two years. With a focus on wellness and nutrition she works with women to achieve their strength and physique goals.",
+    image: haileyImg,
+    slug: 'hailey-peterson',
+    quote: "Strength is for all, heavy weights build beautiful and powerful women.",
+    bannerImage: haileyBanner,
+    cards: [
+      {
+        title: 'Aesthetics',
+        description: 'Build a strong, confident physique with training focused on muscle development, definition, balance, and sustainable body-composition goals.',
+        icon: Sparkles
+      },
+      {
+        title: 'Hypertrophy',
+        description: 'Develop lean muscle through progressive resistance training, intentional exercise selection, and personalized programming.',
+        icon: Dumbbell
+      },
+      {
+        title: 'Nutrition',
+        description: 'Create sustainable progress through strength training, practical nutrition guidance, and habits that support your goals beyond the gym.',
+        icon: Apple
+      },
+      {
+        title: 'Hormone Balance',
+        description: 'Support the changing needs of the body through thoughtful strength training, recovery, nutrition, and sustainable wellness habits.',
+        icon: HeartPulse
+      }
+    ]
   },
   {
     name: 'Heather Hetager',
