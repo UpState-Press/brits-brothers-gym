@@ -1,4 +1,4 @@
-import { Dumbbell, Activity, TrendingDown, Gauge, Sparkles, TrendingUp, Brain } from 'lucide-react';
+import { Dumbbell, Activity, TrendingDown, Gauge, Sparkles, TrendingUp, Brain, Zap } from 'lucide-react';
 import ollyImg from '../assets/olly-pierce.webp';
 import jakeImg from '../assets/jake-henderson.webp';
 import guyImg from '../assets/guy-mosley.webp';
@@ -7,6 +7,7 @@ import haleyImg from '../assets/haley-peterson.webp';
 import heatherImg from '../assets/heather-hetager.webp';
 import jakeBanner from '../imports/banner-12.jpg';
 import guyBanner from '../imports/banner-10.jpg';
+import ryanBanner from '../assets/banner-ryan-mccaffery.webp';
 
 export interface TrainerCard {
   title: string;
@@ -106,7 +107,31 @@ export const trainersData: Trainer[] = [
     title: 'Personal Trainer',
     bio: "Ryan is passionate about helping people build muscle and improve body composition through personalized training. He works with clients of all experience levels and creates programs based on their goals and abilities to make training effective and sustainable. Ryan is committed to providing a high level of coaching and continuously expands his knowledge of biomechanics and proven training principles to help clients train with intent, work hard, stay consistent, and achieve long-term results.",
     image: ryanImg,
-    slug: null,
+    slug: 'ryan-mccaffery',
+    quote: "Powerful physiques nurture powerful minds",
+    bannerImage: ryanBanner,
+    cards: [
+      {
+        title: 'Hypertrophy',
+        description: 'Build muscle through intentional exercise selection, progressive overload, proper technique, and programming tailored to your experience level.',
+        icon: Dumbbell
+      },
+      {
+        title: 'Aesthetics',
+        description: 'Develop a stronger, more balanced physique with training focused on muscular development, definition, symmetry, and sustainable progress.',
+        icon: Sparkles
+      },
+      {
+        title: 'Power',
+        description: 'Increase explosive strength and force production through purposeful resistance training and performance-focused programming.',
+        icon: Zap
+      },
+      {
+        title: 'Fat Transformation',
+        description: 'Improve body composition through consistent strength training, increased activity, and sustainable habits that support lasting results.',
+        icon: TrendingDown
+      }
+    ]
   },
   {
     name: 'Haley Peterson',
