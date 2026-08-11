@@ -49,7 +49,7 @@ export const trainersData: Trainer[] = [
     bio: "Jake Henderson is a strength and conditioning coach and owner of Carolina Barbell Club at Brits Brothers Gym. With over 11 years of experience and a Bachelor's degree in Exercise and Sports Science, he specializes in training strength athletes, such as powerlifters and strongman competitors, alongside lifestyle clients. Jake's coaching focuses on practical strength principles to improve athletic performance, long-term health, and daily functionality. Jake works with individuals aged 15 to 75, creating custom programs for goals ranging from competitive lifting to weight loss and mobility. He is dedicated to helping people use fitness for physical and mental self-improvement while fostering a disciplined community at Carolina Barbell Club.",
     image: jakeImg,
     slug: 'jake-henderson',
-    quote: "Strength isn't just physical—it's mental, emotional, and spiritual. I help you build all four.",
+    quote: "Strength isn't just physical—it's mental, emotional, and psychological. I help you build all four.",
     bannerImage: jakeBanner,
     cards: [
       {
