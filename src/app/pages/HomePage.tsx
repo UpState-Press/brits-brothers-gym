@@ -3,6 +3,7 @@ import { Hero } from '../components/Hero';
 import { Philosophy } from '../components/Philosophy';
 import { Trainers } from '../components/Trainers';
 import { Programs } from '../components/Programs';
+import { Facility } from '../components/Facility';
 import { Hours } from '../components/Hours';
 import { Pricing } from '../components/Pricing';
 import { Location } from '../components/Location';
@@ -20,6 +21,7 @@ export function HomePage() {
       <Philosophy />
       <Trainers />
       <Programs />
+      <Facility />
       <Hours />
       <Pricing />
       <Location />
