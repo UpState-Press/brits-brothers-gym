@@ -53,19 +53,24 @@ export const trainersData: Trainer[] = [
     bannerImage: jakeBanner,
     cards: [
       {
-        title: 'Power',
-        description: 'Power refers to the ability to generate force quickly. Powerlifting requires explosive strength to perform the lifts effectively.',
+        title: 'Powerlifting & Strongman',
+        description: 'Develop maximum strength through structured programming for the squat, bench press, deadlift, loaded carries, and strongman-specific events.',
         icon: Dumbbell
       },
       {
-        title: 'Strength',
-        description: 'Incorporate resistance training exercises that focus on compound movements and target multiple muscle groups.',
-        icon: Activity
+        title: 'Athletic Performance',
+        description: 'Improve power, work capacity, movement quality, and overall athletic ability through practical, performance-driven training.',
+        icon: Gauge
       },
       {
-        title: 'Weight Loss',
-        description: 'Gradually increase the weight or intensity over time to continually challenge your muscles and follow the nutrition advice given by your trainer.',
-        icon: TrendingDown
+        title: 'Wellness & Lifestyle',
+        description: 'Build strength that carries into everyday life with personalized training designed to support long-term health, confidence, and functionality.',
+        icon: HeartPulse
+      },
+      {
+        title: 'Mobility & Longevity',
+        description: 'Improve joint function, movement quality, and resilience so you can continue training hard and moving well for years to come.',
+        icon: Leaf
       }
     ],
     testimonials: [
