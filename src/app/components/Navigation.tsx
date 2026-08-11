@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import logo from 'figma:asset/4094adf8e330be671acfe499d0c85e8a6240fa34.png';
+import { getTrainersWithDetailPages } from '../../data/trainers';
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isTrainersOpen, setIsTrainersOpen] = useState(false);
+  const trainerPages = getTrainersWithDetailPages();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#121214]/98 backdrop-blur-md">
@@ -34,34 +36,27 @@ export function Navigation() {
               onMouseEnter={() => setIsTrainersOpen(true)}
               onMouseLeave={() => setIsTrainersOpen(false)}
             >
-              <button className="flex items-center gap-1 text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase py-2" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
+              <Link
+                to="/trainers"
+                className="flex items-center gap-1 text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase py-2"
+                style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}
+              >
                 Trainers
                 <ChevronDown size={16} className={`transition-transform ${isTrainersOpen ? 'rotate-180' : ''}`} />
-              </button>
+              </Link>
 
               {isTrainersOpen && (
                 <div className="absolute top-full left-0 bg-[#1c1c1e] border border-[#fdfdff]/10 min-w-[200px] py-2">
-                  <Link
-                    to="/trainers"
-                    className="block px-6 py-3 text-[#a7a7ad] hover:text-[#cc1e23] hover:bg-[#121214] transition-colors text-sm tracking-wide uppercase"
-                    style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}
-                  >
-                    All Trainers
-                  </Link>
-                  <Link
-                    to="/trainers/jake-henderson"
-                    className="block px-6 py-3 text-[#a7a7ad] hover:text-[#cc1e23] hover:bg-[#121214] transition-colors text-sm tracking-wide uppercase"
-                    style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}
-                  >
-                    Jake Henderson
-                  </Link>
-                  <Link
-                    to="/trainers/guy-mosley"
-                    className="block px-6 py-3 text-[#a7a7ad] hover:text-[#cc1e23] hover:bg-[#121214] transition-colors text-sm tracking-wide uppercase"
-                    style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}
-                  >
-                    Guy Mosley
-                  </Link>
+                  {trainerPages.map((trainer) => (
+                    <Link
+                      key={trainer.slug}
+                      to={`/trainers/${trainer.slug}`}
+                      className="block px-6 py-3 text-[#a7a7ad] hover:text-[#cc1e23] hover:bg-[#121214] transition-colors text-sm tracking-wide uppercase"
+                      style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}
+                    >
+                      {trainer.name}
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
@@ -99,40 +94,36 @@ export function Navigation() {
             <div className="flex flex-col gap-6">
               {/* Trainers Dropdown */}
               <div>
-                <button
-                  onClick={() => setIsTrainersOpen(!isTrainersOpen)}
-                  className="flex items-center gap-1 text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase w-full"
-                  style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}
-                >
-                  Trainers
-                  <ChevronDown size={16} className={`transition-transform ${isTrainersOpen ? 'rotate-180' : ''}`} />
-                </button>
+                <div className="flex items-center justify-between w-full">
+                  <Link
+                    to="/trainers"
+                    onClick={() => setIsOpen(false)}
+                    className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase"
+                    style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}
+                  >
+                    Trainers
+                  </Link>
+                  <button
+                    onClick={() => setIsTrainersOpen(!isTrainersOpen)}
+                    aria-label="Show trainer pages"
+                    className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors px-2"
+                  >
+                    <ChevronDown size={16} className={`transition-transform ${isTrainersOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                </div>
                 {isTrainersOpen && (
                   <div className="pl-4 mt-2 flex flex-col gap-2">
-                    <Link
-                      to="/trainers"
-                      onClick={() => setIsOpen(false)}
-                      className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase"
-                      style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}
-                    >
-                      All Trainers
-                    </Link>
-                    <Link
-                      to="/trainers/jake-henderson"
-                      onClick={() => setIsOpen(false)}
-                      className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase"
-                      style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}
-                    >
-                      Jake Henderson
-                    </Link>
-                    <Link
-                      to="/trainers/guy-mosley"
-                      onClick={() => setIsOpen(false)}
-                      className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase"
-                      style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}
-                    >
-                      Guy Mosley
-                    </Link>
+                    {trainerPages.map((trainer) => (
+                      <Link
+                        key={trainer.slug}
+                        to={`/trainers/${trainer.slug}`}
+                        onClick={() => setIsOpen(false)}
+                        className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm tracking-wide uppercase"
+                        style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}
+                      >
+                        {trainer.name}
+                      </Link>
+                    ))}
                   </div>
                 )}
               </div>
