@@ -4,7 +4,7 @@ import jakeImg from '../assets/jake-henderson.webp';
 import guyImg from '../assets/guy-mosley.webp';
 import ryanImg from '../assets/ryan-mccaffery.webp';
 import haleyImg from '../assets/haley-peterson.webp';
-import heatherImg from '../assets/heather-hetegar.webp';
+import heatherImg from '../assets/heather-hetager.webp';
 import jakeBanner from '../imports/banner-12.jpg';
 import guyBanner from '../imports/banner-10.jpg';
 
@@ -116,7 +116,7 @@ export const trainersData: Trainer[] = [
     slug: null,
   },
   {
-    name: 'Heather Hetegar',
+    name: 'Heather Hetager',
     title: 'Personal Trainer',
     bio: "Heather is a NASM and Yoga Certified personal trainer with a focus on helping women over 35 age gracefully with strength training and yoga. Heather's clients gain longevity, confidence and strength as they work in a comfortable environment to achieve their goals.",
     image: heatherImg,
