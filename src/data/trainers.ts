@@ -1,4 +1,4 @@
-import { Dumbbell, Activity, TrendingDown, Gauge, Sparkles, TrendingUp, Brain, Zap, Apple, HeartPulse } from 'lucide-react';
+import { Dumbbell, Activity, TrendingDown, Gauge, Sparkles, TrendingUp, Brain, Zap, Apple, HeartPulse, Leaf } from 'lucide-react';
 import ollyImg from '../assets/olly-pierce.webp';
 import jakeImg from '../assets/jake-henderson.webp';
 import guyImg from '../assets/guy-mosley.webp';
@@ -9,6 +9,7 @@ import jakeBanner from '../imports/banner-12.jpg';
 import guyBanner from '../imports/banner-10.jpg';
 import ryanBanner from '../assets/banner-ryan-mccaffery.webp';
 import haileyBanner from '../assets/banner-hailey-peterson.webp';
+import heatherBanner from '../assets/banner-heather-hetager.webp';
 
 export interface TrainerCard {
   title: string;
@@ -170,7 +171,26 @@ export const trainersData: Trainer[] = [
     title: 'Personal Trainer',
     bio: "Heather is a NASM and Yoga Certified personal trainer with a focus on helping women over 35 age gracefully with strength training and yoga. Heather's clients gain longevity, confidence and strength as they work in a comfortable environment to achieve their goals.",
     image: heatherImg,
-    slug: null,
+    slug: 'heather-hetager',
+    quote: "Iron Sharpens Iron",
+    bannerImage: heatherBanner,
+    cards: [
+      {
+        title: 'Yoga & Longevity',
+        description: 'Improve flexibility, balance, joint health, and movement quality through a combination of strength training and yoga-based practices.',
+        icon: Leaf
+      },
+      {
+        title: 'Strength',
+        description: 'Build functional strength through approachable resistance training tailored to your experience, comfort level, and individual goals.',
+        icon: Activity
+      },
+      {
+        title: 'Nutrition',
+        description: 'Support healthy body composition with sustainable training, practical nutrition habits, and consistent lifestyle improvements.',
+        icon: Apple
+      }
+    ]
   },
 ];
 
