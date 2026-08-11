@@ -55,6 +55,25 @@ export function TestimonialsPage() {
     }
   ];
 
+  const jakeTestimonials = [
+    {
+      name: 'Hunter Richardson',
+      quote: "I've worked with Jake for several years and he has helped me tackle a multitude of goals from injury recovery, completing my first powerlifting meet, crushing new PRs, and general strength to keep me fit for other interests like ultra marathon running, golf, and hiking. He's a great coach and an even better person who truly cares about the folks he works with."
+    },
+    {
+      name: 'Kristen Conquest',
+      quote: "Working with Jake has quite literally changed my life. I met him with zero experience in powerlifting and he took me under his wing graciously. Through his program, I have never been stronger and more confident. He's the type of trainer that knows your limits better than you do personally and will use that for your benefit. I also appreciate, as a female lifter, that he understands what's required for women to gain muscle vs what's needed for men."
+    },
+    {
+      name: 'Michael J Regan Sr.',
+      quote: "Jake and I began working together in February 2016, and there was an instant connection. Most importantly, he quickly developed a deep understanding of my body, my capabilities, and exactly how to push me. Over the past five years, we have competed together at major events across the country, including the USPA Nationals, IPL World Championships, IPL North American Championships, and the South East Regionals, with great success."
+    },
+    {
+      name: 'Megan Smith',
+      quote: "Jake has kept my running goals at the forefront while still providing a variety of weight training exercises to make me the strongest runner I can be. Since training with Jake my strength has improved, I've become a more versatile athlete, and have stayed injury free. Plus, he's a really cool guy!"
+    }
+  ];
+
   return (
     <>
       <SEO
@@ -175,6 +194,35 @@ export function TestimonialsPage() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Carolina Barbell Club quotes */}
+          <div className="mt-24">
+            <div className="text-center mb-12">
+              <h2 className="text-[#fdfdff] text-4xl md:text-5xl mb-4 tracking-wider" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+                FROM THE CAROLINA BARBELL CLUB
+              </h2>
+              <p className="text-[#a7a7ad] text-lg" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+                Members on training with Jake Henderson
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              {jakeTestimonials.map((t, index) => (
+                <div key={index} className="bg-[#1c1c1e] p-8 flex flex-col">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={20} className="fill-[#cc1e23] text-[#cc1e23]" />
+                    ))}
+                  </div>
+                  <blockquote className="text-[#a7a7ad] text-lg mb-6 leading-relaxed flex-1" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+                    "{t.quote}"
+                  </blockquote>
+                  <p className="text-[#fdfdff] text-xl tracking-wide" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+                    — {t.name}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

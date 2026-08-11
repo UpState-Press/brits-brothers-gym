@@ -131,6 +131,30 @@ export function TrainerDetailPage() {
           <p className="text-[#a7a7ad] text-lg md:text-xl leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
             {trainer.bio}
           </p>
+
+          {trainer.testimonials && trainer.testimonials.length > 0 && (
+            <div className="mt-20">
+              <div className="flex items-center justify-center gap-4 mb-12">
+                <div className="h-px w-16 bg-[#cc1e23]"></div>
+                <h2 className="text-[#fdfdff] text-3xl md:text-4xl tracking-wider text-center" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+                  CLIENTS ON {trainer.name.split(' ')[0].toUpperCase()}
+                </h2>
+                <div className="h-px w-16 bg-[#cc1e23]"></div>
+              </div>
+              <div className="space-y-10">
+                {trainer.testimonials.map((testimonial, index) => (
+                  <div key={index}>
+                    <blockquote className="text-[#a7a7ad] text-lg leading-relaxed italic border-l-4 border-[#cc1e23] pl-6 mb-3" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+                      "{testimonial.quote}"
+                    </blockquote>
+                    <p className="text-[#fdfdff] text-lg tracking-wide pl-6" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+                      — {testimonial.name}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

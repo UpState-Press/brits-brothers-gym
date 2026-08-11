@@ -17,6 +17,11 @@ export interface TrainerCard {
   icon: React.ElementType;
 }
 
+export interface TrainerTestimonial {
+  quote: string;
+  name: string;
+}
+
 export interface Trainer {
   name: string;
   title: string;
@@ -26,6 +31,7 @@ export interface Trainer {
   quote?: string;
   bannerImage?: string;
   cards?: TrainerCard[];
+  testimonials?: TrainerTestimonial[];
 }
 
 // Centralized trainer data - single source of truth
@@ -60,6 +66,20 @@ export const trainersData: Trainer[] = [
         title: 'Weight Loss',
         description: 'Gradually increase the weight or intensity over time to continually challenge your muscles and follow the nutrition advice given by your trainer.',
         icon: TrendingDown
+      }
+    ],
+    testimonials: [
+      {
+        quote: "Programming is always specific to your ability. Programs always arrived on time. Not only did I build my strength but his guidance also gave me confidence in every day tasks. His approach is simple, clear and effective.",
+        name: 'Mauricio Reyes'
+      },
+      {
+        quote: "Jake helped me take my strongman training to the next level and corrected some bad forms I had. I've enjoyed getting to progress in the sport with Jake's help.",
+        name: 'Tobius Jameson'
+      },
+      {
+        quote: "He didn't just hand me a generic program, he identifies your specific weak points and builds training that actually addresses them. That attention to detail made a real difference in hitting my goals on meet day.",
+        name: 'Jordan E.'
       }
     ]
   },
