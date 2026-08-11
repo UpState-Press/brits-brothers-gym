@@ -62,7 +62,7 @@ export function TrainerDetailPage() {
               </blockquote>
 
               <Link
-                to="/membership"
+                to="/contact"
                 className="inline-block bg-[#cc1e23] text-[#fdfdff] px-8 sm:px-12 py-4 sm:py-5 hover:bg-[#a01419] transition-all hover:scale-105 tracking-wider text-base sm:text-lg w-full sm:w-auto text-center"
                 style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}
               >
