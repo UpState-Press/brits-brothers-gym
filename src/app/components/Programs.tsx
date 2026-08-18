@@ -10,7 +10,7 @@ import strongmanImg from '../../imports/banner-12.jpg';
 
 export function Programs() {
   return (
-    <section id="programs" className="relative pt-48 pb-20 bg-[#121214]">
+    <section id="programs" className="relative pt-48 pb-48 bg-[#121214]">
       {/* Top Divider */}
       <div className="absolute top-0 left-0 right-0 w-full z-10">
         <img

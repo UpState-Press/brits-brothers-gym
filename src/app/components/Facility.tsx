@@ -1,6 +1,4 @@
 import { BlackAndWhiteImage } from './BlackAndWhiteImage';
-import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
-import greyDivider from 'figma:asset/d15eda18ea41e9b4c6d7c8d24a445decb714d367.png';
 import backAttackImg from '../../assets/equip-back-attack.webp';
 import monoliftImg from '../../assets/equip-monolift.webp';
 import standingBenchImg from '../../assets/equip-standing-bench.webp';
@@ -42,16 +40,7 @@ const equipment: EquipmentItem[] = [
 
 export function Facility() {
   return (
-    <section id="facility" className="relative pt-40 pb-32 bg-[#1c1c1e]">
-      {/* Top Divider */}
-      <div className="absolute top-0 left-0 right-0 w-full z-10">
-        <img
-          src={greyDivider}
-          alt=""
-          className="w-full h-auto block"
-        />
-      </div>
-
+    <section id="facility" className="relative pt-32 pb-32 bg-[#1c1c1e]">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-[#cc1e23] text-sm md:text-base tracking-[0.3em] uppercase block mb-4" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}>
@@ -93,15 +82,6 @@ export function Facility() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Bottom Divider (same-shade torn texture into the next section) */}
-      <div className="absolute bottom-0 left-0 right-0 w-full z-10">
-        <img
-          src={splatterDivider}
-          alt=""
-          className="w-full h-auto block"
-        />
       </div>
     </section>
   );
