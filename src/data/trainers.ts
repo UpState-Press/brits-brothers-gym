@@ -193,6 +193,28 @@ export const trainersData: Trainer[] = [
         description: 'Support the changing needs of the body through thoughtful strength training, recovery, nutrition, and sustainable wellness habits.',
         icon: HeartPulse
       }
+    ],
+    testimonials: [
+      {
+        quote: "I love training with Hailey. Her connection to the gym and its members helped me feel like part of the community more easily. Hailey knows how to push me just that little bit more. She holds me accountable. And she has coached me through pretty major changes in my body composition. I'm so happy I walked through the door last year!",
+        name: 'Laurie McGranahan'
+      },
+      {
+        quote: "Working out with Hailey has been the best experience I've had with a personal trainer. I have never seen faster results in the gym than I have in the past 2 years. She helped me achieve my dream body. I would and have recommended her to everyone I know.",
+        name: 'Isabella Sforza'
+      },
+      {
+        quote: "Hailey is super helpful. She definitely pushes you to do better while also making sure it's nothing you can't handle. I've noticed a huge difference in myself and definitely in my strength.",
+        name: 'Denae'
+      },
+      {
+        quote: "Hailey is a great trainer. I really have enjoyed her training me. I look forward to our sessions.",
+        name: 'Mercedes Calderon'
+      },
+      {
+        quote: "Amazing! Hailey is great. Love her and the gym as well.",
+        name: 'Amyra Lay'
+      }
     ]
   },
   {
@@ -218,6 +240,20 @@ export const trainersData: Trainer[] = [
         title: 'Nutrition',
         description: 'Support healthy body composition with sustainable training, practical nutrition habits, and consistent lifestyle improvements.',
         icon: Apple
+      }
+    ],
+    testimonials: [
+      {
+        quote: "I've learned so much about how important weight training is and how it benefits my body. Heather has a wide range of knowledge of what the body needs no matter your age. I'm a 64 year old grandmother and my goal is to lose the limp I have from a hip replacement. She has helped me learn I need strength in many areas to get there, and more importantly what my body needs for overall longevity so I can live an active life as I age and chase these grand babies.",
+        name: 'Kathy'
+      },
+      {
+        quote: "I have never had a personal trainer before but now I understand the importance of having one. Heather has been very caring and professional at the same time. She is so good at explaining what muscles we are working as well as why we need to strengthen them. I look forward to getting stronger and improving my balance with Heather's help.",
+        name: 'Cathy Butler'
+      },
+      {
+        quote: "It's really a workout! My trainer Heather is awesome. She's patient with me and very encouraging during my workouts.",
+        name: 'Ellen Hanks'
       }
     ]
   },
