@@ -85,6 +85,10 @@ export const trainersData: Trainer[] = [
       {
         quote: "He didn't just hand me a generic program, he identifies your specific weak points and builds training that actually addresses them. That attention to detail made a real difference in hitting my goals on meet day.",
         name: 'Jordan E.'
+      },
+      {
+        quote: "I was hesitant at first because I went to school to be a personal trainer and figured I could just do it myself. I decided to work with Jake because he has a lot of experience I did not have. He has been everything I could have hoped for in a coach and mentor, and now I consider him a big brother. Forever grateful for Jake and the whole Brits Brothers family.",
+        name: 'Mike Thompson'
       }
     ]
   },
