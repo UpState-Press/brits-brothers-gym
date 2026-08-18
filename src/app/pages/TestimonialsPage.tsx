@@ -74,6 +74,19 @@ export function TestimonialsPage() {
     }
   ];
 
+  const memberTestimonials = [
+    {
+      name: 'Lee and Pauline Brown',
+      detail: 'Members over 20 years',
+      quote: "Over the years we have worked with multiple trainers. All very knowledgeable about what was needed to help us reach our goals safely and effectively. Trainers are easy to work with and eager to keep the workouts varied while taking care not to overwork or injure the client. The gym has a wide variety of equipment, both machines and free weights. We've stayed at Brits Brothers as long as we have because of the personnel as well as the people we've met there."
+    },
+    {
+      name: 'Larissa Lopez',
+      detail: 'Member 11 months',
+      quote: "It's great! I always feel comfortable, everyone is nice and welcoming."
+    }
+  ];
+
   return (
     <>
       <SEO
@@ -219,6 +232,38 @@ export function TestimonialsPage() {
                   </blockquote>
                   <p className="text-[#fdfdff] text-xl tracking-wide" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
                     — {t.name}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Members on the gym */}
+          <div className="mt-24">
+            <div className="text-center mb-12">
+              <h2 className="text-[#fdfdff] text-4xl md:text-5xl mb-4 tracking-wider" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+                FROM THE MEMBERS
+              </h2>
+              <p className="text-[#a7a7ad] text-lg" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+                On the gym and the people in it
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              {memberTestimonials.map((t, index) => (
+                <div key={index} className="bg-[#1c1c1e] p-8 flex flex-col">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={20} className="fill-[#cc1e23] text-[#cc1e23]" />
+                    ))}
+                  </div>
+                  <blockquote className="text-[#a7a7ad] text-lg mb-6 leading-relaxed flex-1" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+                    "{t.quote}"
+                  </blockquote>
+                  <p className="text-[#fdfdff] text-xl tracking-wide" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+                    — {t.name}
+                  </p>
+                  <p className="text-[#a7a7ad] text-sm tracking-wide uppercase mt-1" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
+                    {t.detail}
                   </p>
                 </div>
               ))}
