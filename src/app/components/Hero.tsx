@@ -42,7 +42,7 @@ export function Hero() {
                 className="group bg-[#cc1e23] text-[#fdfdff] px-10 py-5 hover:bg-[#a01419] transition-all hover:scale-105 flex items-center justify-center gap-3 tracking-wider text-lg"
                 style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}
               >
-                Book a Free Consultation
+                Book a Free Evaluation
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </Link>
               <a
