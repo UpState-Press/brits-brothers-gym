@@ -1,6 +1,6 @@
 import { type FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Star } from 'lucide-react';
+import { Star, Users, Dumbbell, Target, Clock } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { SEO } from '../components/SEO';
 import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
@@ -10,6 +10,7 @@ import { Location } from '../components/Location';
 import jakeOdumImg from '../../imports/jake-odum.jpg';
 import lilyWikoffImg from '../../imports/lily-wikoff.jpg';
 import ollyImg from '../../assets/olly-pierce.webp';
+import floorImg from '../../imports/banner-12.jpg';
 
 const FORM_SUBJECT = "New free evaluation request from Brit's Brothers Gym";
 // Same Formspree endpoint the contact form uses (never hardcode it).
@@ -22,6 +23,33 @@ const SUCCESS_MESSAGE = 'Thanks. Your evaluation request is in. We will reach ou
 const ERROR_MESSAGE = `Something went wrong. Please call ${siteConfig.contact.phone.main} to book your free evaluation.`;
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
+
+const whatYouGet = [
+  {
+    icon: Users,
+    title: 'Time with the owner',
+    description:
+      "You sit down with Olly Pierce himself. Thirty years on this floor, not a front desk rep reading off a script.",
+  },
+  {
+    icon: Dumbbell,
+    title: 'A walk of the whole gym',
+    description:
+      'See the floor and the equipment you would actually be training on, strongman gear and specialty bars included.',
+  },
+  {
+    icon: Target,
+    title: 'An honest read on your goals',
+    description:
+      "Tell Olly what you are after. He tells you straight what it takes to get there and whether this is the right room for it.",
+  },
+  {
+    icon: Clock,
+    title: 'Thirty minutes, no strings',
+    description:
+      'In and out in about half an hour. No cost, no contract, and nothing to sign unless you decide you want to.',
+  },
+];
 
 const proofTestimonials = [
   {
@@ -39,9 +67,22 @@ const proofTestimonials = [
 ];
 
 const faqItems = [
-  { q: 'Never trained before?', a: 'Olly starts everyone where they are.' },
-  { q: 'Worried about a contract?', a: 'No pressure, no signing anything.' },
-  { q: 'Not in shape yet?', a: "That's the point of coming in." },
+  {
+    q: 'I have never trained before.',
+    a: 'Good. Olly starts everyone where they are, and most people who walk in here started exactly the same way.',
+  },
+  {
+    q: 'Do I have to sign anything?',
+    a: 'No. The evaluation is free and there is no contract attached to it. You leave when it is done and decide on your own time.',
+  },
+  {
+    q: 'I am not in shape yet.',
+    a: 'That is the reason to come in, not a reason to wait. Nobody here expects you to arrive already fit.',
+  },
+  {
+    q: 'What should I bring?',
+    a: 'Just yourself. Wear training clothes if you want to put your hands on something while you are here.',
+  },
 ];
 
 export function ConsultationPage() {
@@ -96,8 +137,9 @@ export function ConsultationPage() {
         keywords="free evaluation, meet Olly Pierce, personal training evaluation Greenville SC, book gym tour"
       />
 
-      {/* Hero — modeled on the trainer detail page pattern */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#121214] pt-24">
+      {/* Hero — modeled on the trainer detail page pattern.
+          Owns the Hero -> Why Olly seam (#121214 -> #1c1c1e) with a bottom splatterDivider. */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#121214] pt-24 pb-48">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img
@@ -147,7 +189,7 @@ export function ConsultationPage() {
           </div>
         </div>
 
-        {/* Bottom Divider */}
+        {/* Bottom Divider — owns Hero -> Why Olly */}
         <div className="absolute bottom-0 left-0 right-0 w-full z-0">
           <img src={splatterDivider} alt="" className="w-full h-auto block" />
         </div>
@@ -156,27 +198,100 @@ export function ConsultationPage() {
       {/* Why Olly */}
       <section className="relative py-32 bg-[#1c1c1e]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-[#fdfdff] text-3xl md:text-5xl mb-8 tracking-wider" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+          <span className="text-[#cc1e23] text-sm md:text-base tracking-[0.3em] uppercase block mb-4" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}>
+            Thirty Years On This Floor
+          </span>
+          <h2 className="text-[#fdfdff] text-4xl md:text-5xl mb-8 tracking-wider" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
             WHY OLLY
           </h2>
-          <p className="text-[#a7a7ad] text-lg md:text-xl leading-relaxed mb-10" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+          <p className="text-[#a7a7ad] text-lg md:text-xl leading-relaxed mb-12" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
             Olly Pierce built Brit's Brothers Gym thirty years ago and still runs the floor every day. Best Trainer of the Upstate, nine years in a row. A bodybuilder since 18, he's trained bodybuilders, fighters, and lifters coming back from injury.
           </p>
-          <blockquote className="text-[#fdfdff] text-2xl md:text-3xl leading-snug" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+
+          <blockquote className="text-[#fdfdff] text-2xl md:text-3xl leading-relaxed italic border-l-4 border-[#cc1e23] pl-6 text-left max-w-2xl mx-auto" style={{ fontFamily: "'ltc-goudy-text-pro-shaded', serif" }}>
             "The key to success is connecting your body to your mind."
           </blockquote>
-          <p className="text-[#a7a7ad] text-sm mt-4 tracking-wide uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
+          <p className="text-[#a7a7ad] text-sm mt-4 tracking-wide uppercase text-left max-w-2xl mx-auto pl-6" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
             — Olly Pierce, Owner &amp; Head Coach
           </p>
         </div>
       </section>
 
+      {/* What You Get — owns Why Olly -> here (top) and here -> Proof (bottom) */}
+      <section className="relative pt-48 pb-48 bg-[#121214]">
+        {/* Top Divider — owns Why Olly (#1c1c1e) -> What You Get (#121214) */}
+        <div className="absolute top-0 left-0 right-0 w-full z-10">
+          <img src={splatterDivider} alt="" className="w-full h-auto block rotate-180" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-[#cc1e23] text-sm md:text-base tracking-[0.3em] uppercase block mb-4" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}>
+              Your Free Evaluation
+            </span>
+            <h2 className="text-[#fdfdff] text-4xl md:text-5xl mb-4 tracking-wider" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+              WHAT YOU GET
+            </h2>
+            <p className="text-[#a7a7ad] text-lg max-w-3xl mx-auto" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+              Half an hour on the floor with the man who built this place.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* Photo */}
+            <div className="relative aspect-[4/5] bg-[#1c1c1e] overflow-hidden">
+              <img
+                src={floorImg}
+                alt="Training floor at Brit's Brothers Gym"
+                className="w-full h-full object-cover grayscale"
+              />
+            </div>
+
+            {/* Items */}
+            <div className="space-y-10">
+              {whatYouGet.map((item, index) => {
+                const IconComponent = item.icon;
+                return (
+                  <div key={index} className="flex gap-6">
+                    <div className="w-14 h-14 shrink-0 bg-[#cc1e23]/20 rounded-full flex items-center justify-center">
+                      <IconComponent className="text-[#cc1e23]" size={28} />
+                    </div>
+                    <div>
+                      <h3 className="text-[#fdfdff] text-xl md:text-2xl mb-2 tracking-wider" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+                        {item.title.toUpperCase()}
+                      </h3>
+                      <p className="text-[#a7a7ad] leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Divider — owns What You Get (#121214) -> Proof (#1c1c1e) */}
+        <div className="absolute bottom-0 left-0 right-0 w-full z-10">
+          <img src={splatterDivider} alt="" className="w-full h-auto block" />
+        </div>
+      </section>
+
       {/* Proof */}
-      <section className="relative py-32 bg-[#121214]">
+      <section className="relative py-32 bg-[#1c1c1e]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-[#cc1e23] text-sm md:text-base tracking-[0.3em] uppercase block mb-4" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}>
+              Real Results
+            </span>
+            <h2 className="text-[#fdfdff] text-4xl md:text-5xl tracking-wider" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+              MEMBERS ON OLLY
+            </h2>
+          </div>
+
           <div className="space-y-8">
             {proofTestimonials.map((testimonial, index) => (
-              <div key={index} className="bg-[#1c1c1e] overflow-hidden grid md:grid-cols-[300px_1fr] gap-0">
+              <div key={index} className="bg-[#121214] overflow-hidden grid md:grid-cols-[300px_1fr] gap-0">
                 <div className="relative overflow-hidden">
                   <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
                 </div>
@@ -196,6 +311,7 @@ export function ConsultationPage() {
               </div>
             ))}
           </div>
+
           <p className="text-center mt-10">
             <Link to="/testimonials" className="text-[#a7a7ad] text-sm underline hover:text-[#cc1e23] transition-colors" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
               See more stories →
@@ -204,10 +320,51 @@ export function ConsultationPage() {
         </div>
       </section>
 
+      {/* FAQ — owns Proof -> here (top) and here -> Form (bottom) */}
+      <section className="relative pt-48 pb-48 bg-[#121214]">
+        {/* Top Divider — owns Proof (#1c1c1e) -> FAQ (#121214) */}
+        <div className="absolute top-0 left-0 right-0 w-full z-10">
+          <img src={splatterDivider} alt="" className="w-full h-auto block rotate-180" />
+        </div>
+
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-[#cc1e23] text-sm md:text-base tracking-[0.3em] uppercase block mb-4" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}>
+              Before You Book
+            </span>
+            <h2 className="text-[#fdfdff] text-4xl md:text-5xl tracking-wider" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+              STRAIGHT ANSWERS
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {faqItems.map((item, index) => (
+              <div key={index} className="bg-[#1c1c1e] p-8 border-l-4 border-[#cc1e23]">
+                <h3 className="text-[#fdfdff] text-xl md:text-2xl mb-4 tracking-wide" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+                  {item.q.toUpperCase()}
+                </h3>
+                <p className="text-[#a7a7ad] leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+                  {item.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Divider — owns FAQ (#121214) -> Form (#1c1c1e) */}
+        <div className="absolute bottom-0 left-0 right-0 w-full z-10">
+          <img src={splatterDivider} alt="" className="w-full h-auto block" />
+        </div>
+      </section>
+
       {/* Intake Form */}
       <section id="evaluation-form" className="relative py-32 bg-[#1c1c1e]">
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#1c1c1e] p-8">
+          <div className="bg-[#121214] p-8 md:p-12">
+            <span className="text-[#cc1e23] text-sm tracking-[0.3em] uppercase block mb-4" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}>
+              No Cost, No Contract
+            </span>
+
             <h2 className="text-[#fdfdff] text-3xl md:text-4xl mb-4 tracking-wider" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
               BOOK YOUR EVALUATION
             </h2>
@@ -278,17 +435,13 @@ export function ConsultationPage() {
               </button>
             </form>
 
-            {/* Quick FAQ / trust strip */}
-            <div className="mt-10 space-y-3">
-              {faqItems.map((item, index) => (
-                <p key={index} className="text-[#a7a7ad] text-sm leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
-                  <span className="text-[#fdfdff]" style={{ fontWeight: 600 }}>{item.q}</span> {item.a}
-                </p>
-              ))}
-            </div>
+            {/* Award trust line */}
+            <p className="text-[#a7a7ad] text-sm mt-8 text-center tracking-wide" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
+              Voted "Best Trainer of the Upstate" 9 years in a row.
+            </p>
 
             {/* Secondary path to pricing */}
-            <p className="text-[#a7a7ad] text-sm mt-8 text-center" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+            <p className="text-[#a7a7ad] text-sm mt-4 text-center" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
               Want to see prices first?{' '}
               <Link to="/membership" className="text-[#fdfdff] underline hover:text-[#cc1e23] transition-colors">
                 View membership and training options
