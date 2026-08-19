@@ -6,9 +6,17 @@ import { trainersData } from '../../data/trainers';
 
 export function Trainers() {
   // Single source of truth so the homepage grid stays in sync with the roster.
-  // slug is carried through so cards with a detail page can link to it; the
-  // ones without a page (slug: null) stay static rather than dead links.
   const trainers = trainersData.map(({ name, title, image, slug }) => ({ name, title, image, slug }));
+
+  // Where a card points. A trainer with a detail page goes to it. Olly has no
+  // detail page, so his card sends people to the free evaluation instead of
+  // being the one dead card in the grid. If he ever gets a page, adding his
+  // slug in trainers.ts takes precedence automatically.
+  function linkFor(trainer: { name: string; slug: string | null }) {
+    if (trainer.slug) return { to: `/trainers/${trainer.slug}`, cue: 'View Profile' };
+    if (trainer.name === 'Olly Pierce') return { to: '/consultation', cue: 'Book a Free Evaluation' };
+    return null;
+  }
 
   return (
     <section id="trainers" className="relative pt-48 pb-20 bg-[#121214]">
@@ -44,6 +52,7 @@ export function Trainers() {
         {/* Trainers Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {trainers.map((trainer, index) => {
+            const link = linkFor(trainer);
             const card = (
               <div className="relative overflow-hidden bg-[#1c1c1e]">
                 {/* Image */}
@@ -63,12 +72,12 @@ export function Trainers() {
                       {trainer.title}
                     </p>
 
-                    {trainer.slug && (
+                    {link && (
                       <span
                         className="mt-3 inline-flex items-center gap-2 text-[#a7a7ad] group-hover:text-[#fdfdff] text-xs tracking-[0.2em] uppercase transition-colors"
                         style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}
                       >
-                        View Profile
+                        {link.cue}
                         <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                       </span>
                     )}
@@ -77,11 +86,11 @@ export function Trainers() {
               </div>
             );
 
-            return trainer.slug ? (
+            return link ? (
               <Link
                 key={index}
-                to={`/trainers/${trainer.slug}`}
-                aria-label={`${trainer.name}, ${trainer.title}. View profile.`}
+                to={link.to}
+                aria-label={`${trainer.name}, ${trainer.title}. ${link.cue}.`}
                 className="group relative block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc1e23] focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214]"
               >
                 {card}
