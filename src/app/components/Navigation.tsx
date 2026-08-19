@@ -75,7 +75,7 @@ export function Navigation() {
               (864) 553-3821
             </a>
             <Link to="/consultation" className="bg-[#cc1e23] text-[#fdfdff] px-8 py-3 hover:bg-[#a01419] transition-all hover:scale-105 tracking-wider text-sm" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-              Free Consultation
+              Free Evaluation
             </Link>
           </div>
 
@@ -141,7 +141,7 @@ export function Navigation() {
                 (864) 553-3821
               </a>
               <Link to="/consultation" onClick={() => setIsOpen(false)} className="bg-[#cc1e23] text-[#fdfdff] px-6 py-3 hover:bg-[#a01419] transition-colors tracking-wider text-sm w-full text-center block" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-                Book a Free Consultation
+                Book a Free Evaluation
               </Link>
             </div>
           </div>

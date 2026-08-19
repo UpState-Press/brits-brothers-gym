@@ -1,19 +1,46 @@
 import { type FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Star } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { SEO } from '../components/SEO';
 import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
 import { FinalCTA } from '../components/FinalCTA';
 import { Location } from '../components/Location';
+import jakeOdumImg from '../../imports/jake-odum.jpg';
+import lilyWikoffImg from '../../imports/lily-wikoff.jpg';
 
-const FORM_SUBJECT = "New free consultation request from Brit's Brothers Gym";
+const FORM_SUBJECT = "New free evaluation request from Brit's Brothers Gym";
 // Same Formspree endpoint the contact form uses (never hardcode it).
+// TODO(Duncan): swap this section's <form> block for the GHL embed once the
+// snippet is provided. GHL form redirects to the booking calendar itself,
+// so the success/error state below becomes unnecessary at that point.
 const FORM_ENDPOINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT;
 
-const SUCCESS_MESSAGE = 'Thanks. Your consultation request is in. We will reach out soon to set a time.';
-const ERROR_MESSAGE = `Something went wrong. Please call ${siteConfig.contact.phone.main} to book your free consultation.`;
+const SUCCESS_MESSAGE = 'Thanks. Your evaluation request is in. We will reach out soon to set a time.';
+const ERROR_MESSAGE = `Something went wrong. Please call ${siteConfig.contact.phone.main} to book your free evaluation.`;
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
+
+const proofTestimonials = [
+  {
+    name: 'Jake Odum',
+    quote:
+      "Olly Pierce and the guys at Brit's Brothers Gym have a top-notch organization. They provide one-on-one personalized service that is tailored to your individual needs, and they do that at an unbeatable value! I am stronger than I've ever been and they showed me techniques that I had been doing wrong for years and didn't even know it!",
+    image: jakeOdumImg,
+  },
+  {
+    name: 'Lily Wikoff',
+    quote:
+      "My experience training with Olly at Brit's Brothers has been the most incredible experience I've ever had with a personal trainer, and the results I've seen in the amount of time I've been training have far exceeded my expectations.",
+    image: lilyWikoffImg,
+  },
+];
+
+const faqItems = [
+  { q: 'Never trained before?', a: 'Olly starts everyone where they are.' },
+  { q: 'Worried about a contract?', a: 'No pressure, no signing anything.' },
+  { q: 'Not in shape yet?', a: "That's the point of coming in." },
+];
 
 export function ConsultationPage() {
   const [formStatus, setFormStatus] = useState<FormStatus>('idle');
@@ -62,24 +89,24 @@ export function ConsultationPage() {
   return (
     <>
       <SEO
-        title="Book a Free Consultation"
-        description="Book a free consultation at Brit's Brothers Gym in Greenville, SC. Tell us your goals and our coaches will build a plan to get you there."
-        keywords="free consultation, personal training consultation Greenville SC, book training session"
+        title="Book a Free Evaluation"
+        description="Book a free evaluation with Olly Pierce at Brit's Brothers Gym in Greenville, SC. Meet the owner, tour the gym, and talk through your goals, no cost, no obligation."
+        keywords="free evaluation, meet Olly Pierce, personal training evaluation Greenville SC, book gym tour"
       />
 
       {/* Hero */}
       <section className="relative pt-40 pb-40 bg-[#121214]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-[#cc1e23] text-sm md:text-base tracking-[0.3em] uppercase block mb-6" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}>
-            Start Here
+            Meet Olly
           </span>
 
           <h1 className="text-[#fdfdff] text-5xl md:text-7xl lg:text-8xl mb-8 leading-tight tracking-tight" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-            BOOK A FREE CONSULTATION
+            MEET OLLY PIERCE. THIRTY YEARS RUNNING THIS GYM.
           </h1>
 
           <p className="text-[#a7a7ad] text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
-            Tell us your goals. We will build the plan and show you how to get there.
+            Voted Best Trainer of the Upstate, nine years in a row. Book your free evaluation below.
           </p>
         </div>
 
@@ -89,12 +116,63 @@ export function ConsultationPage() {
         </div>
       </section>
 
+      {/* Why Olly */}
+      <section className="relative py-32 bg-[#1c1c1e]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-[#fdfdff] text-3xl md:text-5xl mb-8 tracking-wider" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+            WHY OLLY
+          </h2>
+          <p className="text-[#a7a7ad] text-lg md:text-xl leading-relaxed mb-10" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+            Olly Pierce built Brit's Brothers Gym thirty years ago and still runs the floor every day. Best Trainer of the Upstate, nine years in a row. A bodybuilder since 18, he's trained bodybuilders, fighters, and lifters coming back from injury.
+          </p>
+          <blockquote className="text-[#fdfdff] text-2xl md:text-3xl leading-snug" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+            "The key to success is connecting your body to your mind."
+          </blockquote>
+          <p className="text-[#a7a7ad] text-sm mt-4 tracking-wide uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
+            — Olly Pierce, Owner &amp; Head Coach
+          </p>
+        </div>
+      </section>
+
+      {/* Proof */}
+      <section className="relative py-32 bg-[#121214]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-8">
+            {proofTestimonials.map((testimonial, index) => (
+              <div key={index} className="bg-[#1c1c1e] overflow-hidden grid md:grid-cols-[300px_1fr] gap-0">
+                <div className="relative overflow-hidden">
+                  <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
+                </div>
+                <div className="p-8 flex flex-col justify-center">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={20} className="fill-[#cc1e23] text-[#cc1e23]" />
+                    ))}
+                  </div>
+                  <blockquote className="text-[#a7a7ad] text-lg mb-6 leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+                    "{testimonial.quote}"
+                  </blockquote>
+                  <p className="text-[#fdfdff] text-xl tracking-wide" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+                    — {testimonial.name}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-center mt-10">
+            <Link to="/testimonials" className="text-[#a7a7ad] text-sm underline hover:text-[#cc1e23] transition-colors" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
+              See more stories →
+            </Link>
+          </p>
+        </div>
+      </section>
+
       {/* Intake Form */}
       <section className="relative py-32 bg-[#1c1c1e]">
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#1c1c1e] p-8">
             <h2 className="text-[#fdfdff] text-3xl md:text-4xl mb-4 tracking-wider" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-              TELL US ABOUT YOU
+              BOOK YOUR EVALUATION
             </h2>
 
             {/* Secondary option: phone */}
@@ -103,9 +181,11 @@ export function ConsultationPage() {
               <a href={`tel:${siteConfig.contact.phone.mainRaw}`} className="text-[#fdfdff] hover:text-[#cc1e23] transition-colors">
                 Call {siteConfig.contact.phone.main}
               </a>{' '}
-              and we will set up your free consultation.
+              and we will set up your free evaluation.
             </p>
 
+            {/* NOTE: this is the existing Formspree form, held over temporarily.
+                Swap for the GHL embed (redirects to booking calendar) once provided. */}
             <form className="space-y-6" onSubmit={handleConsultSubmit} noValidate>
               {/* Formspree honeypot */}
               <input
@@ -139,24 +219,6 @@ export function ConsultationPage() {
                 <input type="email" id="email" name="email" required className={fieldClass} style={{ fontFamily: "'Work Sans', sans-serif" }} />
               </div>
 
-              <div>
-                <label htmlFor="goals" className={labelClass} style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
-                  Tell us about your goals
-                </label>
-                <textarea id="goals" name="goals" rows={5} required className={`${fieldClass} resize-none`} style={{ fontFamily: "'Work Sans', sans-serif" }} />
-              </div>
-
-              <div>
-                <label htmlFor="preferred_contact" className={labelClass} style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
-                  Preferred contact method
-                </label>
-                <select id="preferred_contact" name="preferred_contact" defaultValue="Phone" className={fieldClass} style={{ fontFamily: "'Work Sans', sans-serif" }}>
-                  <option value="Phone">Phone</option>
-                  <option value="Text">Text</option>
-                  <option value="Email">Email</option>
-                </select>
-              </div>
-
               {formStatus === 'success' ? (
                 <p className="text-[#fdfdff] text-sm leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }} role="status">
                   {SUCCESS_MESSAGE}
@@ -175,9 +237,18 @@ export function ConsultationPage() {
                 className="w-full bg-[#cc1e23] text-[#fdfdff] px-8 py-4 hover:bg-[#a01419] transition-all hover:scale-105 tracking-wider text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}
               >
-                {formStatus === 'sending' ? 'Sending...' : 'Request My Consultation'}
+                {formStatus === 'sending' ? 'Sending...' : 'Book My Evaluation'}
               </button>
             </form>
+
+            {/* Quick FAQ / trust strip */}
+            <div className="mt-10 space-y-3">
+              {faqItems.map((item, index) => (
+                <p key={index} className="text-[#a7a7ad] text-sm leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
+                  <span className="text-[#fdfdff]" style={{ fontWeight: 600 }}>{item.q}</span> {item.a}
+                </p>
+              ))}
+            </div>
 
             {/* Secondary path to pricing */}
             <p className="text-[#a7a7ad] text-sm mt-8 text-center" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
@@ -190,7 +261,7 @@ export function ConsultationPage() {
         </div>
       </section>
 
-      {/* Find Us section is #1c1c1e and the consultation section above it is
+      {/* Find Us section is #1c1c1e and the form section above it is
           also #1c1c1e, so its top divider uses the matching #1c1c1e shade. */}
       <Location topPadding="py-32" topDividerShade="light" />
 

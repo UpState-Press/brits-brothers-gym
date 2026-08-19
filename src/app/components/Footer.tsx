@@ -62,7 +62,7 @@ export function Footer() {
               </li>
               <li>
                 <Link to="/consultation" className="text-[#a7a7ad] hover:text-[#cc1e23] transition-colors text-sm" style={{ fontFamily: "'Work Sans', sans-serif" }}>
-                  Free Consultation
+                  Free Evaluation
                 </Link>
               </li>
               <li>
