@@ -1,10 +1,14 @@
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import { BlackAndWhiteImage } from './BlackAndWhiteImage';
 import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
 import { trainersData } from '../../data/trainers';
 
 export function Trainers() {
   // Single source of truth so the homepage grid stays in sync with the roster.
-  const trainers = trainersData.map(({ name, title, image }) => ({ name, title, image }));
+  // slug is carried through so cards with a detail page can link to it; the
+  // ones without a page (slug: null) stay static rather than dead links.
+  const trainers = trainersData.map(({ name, title, image, slug }) => ({ name, title, image, slug }));
 
   return (
     <section id="trainers" className="relative pt-48 pb-20 bg-[#121214]">
@@ -39,11 +43,8 @@ export function Trainers() {
 
         {/* Trainers Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {trainers.map((trainer, index) => (
-            <div
-              key={index}
-              className="group relative"
-            >
+          {trainers.map((trainer, index) => {
+            const card = (
               <div className="relative overflow-hidden bg-[#1c1c1e]">
                 {/* Image */}
                 <BlackAndWhiteImage
@@ -61,11 +62,36 @@ export function Trainers() {
                     <p className="text-[#cc1e23] text-xs md:text-sm tracking-widest uppercase" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}>
                       {trainer.title}
                     </p>
+
+                    {trainer.slug && (
+                      <span
+                        className="mt-3 inline-flex items-center gap-2 text-[#a7a7ad] group-hover:text-[#fdfdff] text-xs tracking-[0.2em] uppercase transition-colors"
+                        style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}
+                      >
+                        View Profile
+                        <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+
+            return trainer.slug ? (
+              <Link
+                key={index}
+                to={`/trainers/${trainer.slug}`}
+                aria-label={`${trainer.name}, ${trainer.title}. View profile.`}
+                className="group relative block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc1e23] focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214]"
+              >
+                {card}
+              </Link>
+            ) : (
+              <div key={index} className="group relative">
+                {card}
+              </div>
+            );
+          })}
         </div>
 
         {/* Bottom CTA */}
