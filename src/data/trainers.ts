@@ -259,6 +259,19 @@ export const trainersData: Trainer[] = [
   },
 ];
 
+// Where a roster card should point, used by BOTH the homepage grid and the
+// /trainers page so the two can never drift apart. A trainer with a detail
+// page goes to it; Olly has no page yet, so his card goes to the free
+// evaluation rather than being the one dead card. Giving him a slug in the
+// data below automatically switches his card to his detail page.
+export const getTrainerCardLink = (
+  trainer: Pick<Trainer, 'name' | 'slug'>,
+): { to: string; cue: string } | null => {
+  if (trainer.slug) return { to: `/trainers/${trainer.slug}`, cue: 'View Profile' };
+  if (trainer.name === 'Olly Pierce') return { to: '/consultation', cue: 'Book a Free Evaluation' };
+  return null;
+};
+
 // Helper to get trainer by slug for detail pages
 export const getTrainerBySlug = (slug: string): Trainer | undefined => {
   return trainersData.find(trainer => trainer.slug === slug);

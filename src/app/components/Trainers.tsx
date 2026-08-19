@@ -2,21 +2,11 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { BlackAndWhiteImage } from './BlackAndWhiteImage';
 import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
-import { trainersData } from '../../data/trainers';
+import { trainersData, getTrainerCardLink } from '../../data/trainers';
 
 export function Trainers() {
   // Single source of truth so the homepage grid stays in sync with the roster.
   const trainers = trainersData.map(({ name, title, image, slug }) => ({ name, title, image, slug }));
-
-  // Where a card points. A trainer with a detail page goes to it. Olly has no
-  // detail page, so his card sends people to the free evaluation instead of
-  // being the one dead card in the grid. If he ever gets a page, adding his
-  // slug in trainers.ts takes precedence automatically.
-  function linkFor(trainer: { name: string; slug: string | null }) {
-    if (trainer.slug) return { to: `/trainers/${trainer.slug}`, cue: 'View Profile' };
-    if (trainer.name === 'Olly Pierce') return { to: '/consultation', cue: 'Book a Free Evaluation' };
-    return null;
-  }
 
   return (
     <section id="trainers" className="relative pt-48 pb-20 bg-[#121214]">
@@ -52,7 +42,7 @@ export function Trainers() {
         {/* Trainers Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {trainers.map((trainer, index) => {
-            const link = linkFor(trainer);
+            const link = getTrainerCardLink(trainer);
             const card = (
               <div className="relative overflow-hidden bg-[#1c1c1e]">
                 {/* Image */}

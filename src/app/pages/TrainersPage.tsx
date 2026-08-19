@@ -3,7 +3,7 @@ import { SEO } from '../components/SEO';
 import { BlackAndWhiteImage } from '../components/BlackAndWhiteImage';
 import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
 import { FinalCTA } from '../components/FinalCTA';
-import { trainersData } from '../../data/trainers';
+import { trainersData, getTrainerCardLink } from '../../data/trainers';
 
 export function TrainersPage() {
   const trainers = trainersData;
@@ -51,14 +51,20 @@ export function TrainersPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {trainers.map((trainer, index) => {
-              const CardWrapper = trainer.slug ? Link : 'div';
-              const cardProps = trainer.slug ? { to: `/trainers/${trainer.slug}` } : {};
+              const link = getTrainerCardLink(trainer);
+              const CardWrapper = link ? Link : 'div';
+              const cardProps = link
+                ? {
+                    to: link.to,
+                    'aria-label': `${trainer.name}, ${trainer.title}. ${link.cue}.`,
+                  }
+                : {};
 
               return (
                 <CardWrapper
                   key={index}
                   {...cardProps}
-                  className={`group block ${trainer.slug ? 'cursor-pointer' : ''}`}
+                  className={`group block ${link ? 'cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cc1e23] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1c1c1e]' : ''}`}
                 >
                   <div className="bg-[#121214]">
                     {/* Image */}
@@ -87,9 +93,9 @@ export function TrainersPage() {
                       <p className="text-[#a7a7ad] text-sm leading-relaxed mb-4" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }}>
                         {trainer.bio}
                       </p>
-                      {trainer.slug && (
-                        <span className="text-[#fdfdff] text-sm tracking-wide opacity-0 group-hover:opacity-100 transition-opacity" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
-                          View Profile →
+                      {link && (
+                        <span className="text-[#a7a7ad] group-hover:text-[#fdfdff] text-sm tracking-wide transition-colors" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
+                          {link.cue} →
                         </span>
                       )}
                     </div>
