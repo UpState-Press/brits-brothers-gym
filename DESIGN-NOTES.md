@@ -87,6 +87,18 @@ Text, headings, and interactive elements never live inside the reserve.
 | FinalCTA -> Footer | #121214 -> #0a0a0c | footerDivider, Footer top | Footer |
 
 Any new section on any page adds its rows to this table in the same commit.
+
+### Free Evaluation page boundary map (/consultation)
+
+| Seam | Shades | Divider | Owner |
+| --- | --- | --- | --- |
+| Hero -> Why Olly | #121214 -> #1c1c1e | splatterDivider, Hero bottom (pb-48 reserve) | Hero |
+| Why Olly -> What You Get | #1c1c1e -> #121214 | splatterDivider rotate-180, What You Get top (pt-48) | What You Get |
+| What You Get -> Proof | #121214 -> #1c1c1e | splatterDivider, What You Get bottom (pb-48) | What You Get |
+| Proof -> FAQ | #1c1c1e -> #121214 | splatterDivider rotate-180, FAQ top (pt-48) | FAQ |
+| FAQ -> Form | #121214 -> #1c1c1e | splatterDivider, FAQ bottom (pb-48) | FAQ |
+| Form -> Location -> FinalCTA | mixed | see Location.tsx (topDividerShade="light") | per component |
+
 The success stories / testimonials page remains a correct reference
 implementation of the splatterDivider transitions.
 
