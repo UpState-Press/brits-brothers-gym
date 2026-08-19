@@ -4,10 +4,12 @@ import { Star } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { SEO } from '../components/SEO';
 import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b10.png';
+import heroImage from 'figma:asset/b9998cd4dac15b527e6a0d9dcc4f633747e64dd4.webp';
 import { FinalCTA } from '../components/FinalCTA';
 import { Location } from '../components/Location';
 import jakeOdumImg from '../../imports/jake-odum.jpg';
 import lilyWikoffImg from '../../imports/lily-wikoff.jpg';
+import ollyImg from '../../assets/olly-pierce.webp';
 
 const FORM_SUBJECT = "New free evaluation request from Brit's Brothers Gym";
 // Same Formspree endpoint the contact form uses (never hardcode it).
@@ -94,24 +96,59 @@ export function ConsultationPage() {
         keywords="free evaluation, meet Olly Pierce, personal training evaluation Greenville SC, book gym tour"
       />
 
-      {/* Hero */}
-      <section className="relative pt-40 pb-40 bg-[#121214]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-[#cc1e23] text-sm md:text-base tracking-[0.3em] uppercase block mb-6" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}>
-            Meet Olly
-          </span>
+      {/* Hero — modeled on the trainer detail page pattern */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#121214] pt-24">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <img
+            src={heroImage}
+            alt="Training atmosphere"
+            className="w-full h-full object-cover grayscale opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#121214]/70 via-[#121214]/60 to-[#121214]"></div>
+        </div>
 
-          <h1 className="text-[#fdfdff] text-5xl md:text-7xl lg:text-8xl mb-8 leading-tight tracking-tight" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-            MEET OLLY PIERCE. THIRTY YEARS RUNNING THIS GYM.
-          </h1>
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Image */}
+            <div className="relative">
+              <div className="relative aspect-[3/4] bg-[#1c1c1e] overflow-hidden">
+                <img
+                  src={ollyImg}
+                  alt="Olly Pierce"
+                  className="w-full h-full object-cover grayscale"
+                />
+              </div>
+            </div>
 
-          <p className="text-[#a7a7ad] text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
-            Voted Best Trainer of the Upstate, nine years in a row. Book your free evaluation below.
-          </p>
+            {/* Content */}
+            <div>
+              <span className="text-[#cc1e23] text-sm md:text-base tracking-[0.3em] uppercase block mb-4" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}>
+                Owner &amp; Head Coach
+              </span>
+
+              <h1 className="text-[#fdfdff] text-5xl md:text-6xl lg:text-7xl mb-8 leading-tight tracking-tight" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+                OLLY PIERCE
+              </h1>
+
+              <p className="text-[#a7a7ad] text-lg md:text-xl mb-10 leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
+                Thirty years running Brit's Brothers Gym. Voted Best Trainer of the Upstate, nine years in a row.
+              </p>
+
+              <a
+                href="#evaluation-form"
+                className="inline-block bg-[#cc1e23] text-[#fdfdff] px-8 sm:px-12 py-4 sm:py-5 hover:bg-[#a01419] transition-all hover:scale-105 tracking-wider text-base sm:text-lg w-full sm:w-auto text-center"
+                style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}
+              >
+                Book Your Free Evaluation
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* Bottom Divider */}
-        <div className="absolute bottom-0 left-0 right-0 w-full z-10">
+        <div className="absolute bottom-0 left-0 right-0 w-full z-0">
           <img src={splatterDivider} alt="" className="w-full h-auto block" />
         </div>
       </section>
@@ -168,7 +205,7 @@ export function ConsultationPage() {
       </section>
 
       {/* Intake Form */}
-      <section className="relative py-32 bg-[#1c1c1e]">
+      <section id="evaluation-form" className="relative py-32 bg-[#1c1c1e]">
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#1c1c1e] p-8">
             <h2 className="text-[#fdfdff] text-3xl md:text-4xl mb-4 tracking-wider" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
