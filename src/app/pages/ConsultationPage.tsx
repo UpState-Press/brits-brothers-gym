@@ -413,6 +413,23 @@ export function ConsultationPage() {
                 <input type="email" id="email" name="email" required className={fieldClass} style={{ fontFamily: "'Work Sans', sans-serif" }} />
               </div>
 
+              <div>
+                <label htmlFor="message" className={labelClass} style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
+                  Anything we should know?{' '}
+                  <span className="text-[#a7a7ad] normal-case tracking-normal" style={{ fontWeight: 500 }}>
+                    (optional)
+                  </span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  className={`${fieldClass} resize-none placeholder:text-[#a7a7ad]/60`}
+                  style={{ fontFamily: "'Work Sans', sans-serif" }}
+                  placeholder="Goals, injuries, what you have tried before, times that suit you."
+                />
+              </div>
+
               {formStatus === 'success' ? (
                 <p className="text-[#fdfdff] text-sm leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }} role="status">
                   {SUCCESS_MESSAGE}
