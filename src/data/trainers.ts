@@ -1,15 +1,19 @@
-import { Dumbbell, Activity, TrendingDown, Gauge, Sparkles, TrendingUp, Brain, Zap, Apple, HeartPulse, Leaf } from 'lucide-react';
+import { Dumbbell, Activity, TrendingDown, Gauge, Sparkles, TrendingUp, Brain, Zap, Apple, HeartPulse, Leaf, Target, Shield, Flame, Trophy } from 'lucide-react';
 import ollyImg from '../assets/olly-pierce.webp';
 import jakeImg from '../assets/jake-henderson.webp';
 import guyImg from '../assets/guy-mosley.webp';
 import ryanImg from '../assets/ryan-mccaffery.webp';
 import haileyImg from '../assets/hailey-peterson.webp';
 import heatherImg from '../assets/heather-hetager.webp';
+import julietteImg from '../assets/juliette-pierce.webp';
+import evanImg from '../assets/evan-pierce.webp';
 import jakeBanner from '../imports/banner-12.jpg';
 import guyBanner from '../imports/banner-10.jpg';
 import ryanBanner from '../assets/banner-ryan-mccaffery.webp';
 import haileyBanner from '../assets/banner-hailey-peterson.webp';
 import heatherBanner from '../assets/banner-heather-hetager.webp';
+import julietteBanner from '../assets/banner-juliette-pierce.webp';
+import evanBanner from '../assets/banner-evan-pierce.webp';
 
 export interface TrainerCard {
   title: string;
@@ -254,6 +258,68 @@ export const trainersData: Trainer[] = [
       {
         quote: "It's really a workout! My trainer Heather is awesome. She's patient with me and very encouraging during my workouts.",
         name: 'Ellen Hanks'
+      }
+    ]
+  },
+  {
+    name: 'Juliette Pierce',
+    title: 'IFBB Pro Athlete & Personal Trainer',
+    bio: "Juliette Pierce is an IFBB Pro League Fit Model athlete, personal trainer, and current Mrs. Greenville America. She helps women of all ages and experience levels build strength, improve body composition, and feel confident through personalized training and nutritional guidance, with experience supporting women through pregnancy, postpartum, perimenopause, and menopause. Mentored by her father-in-law, Olly Pierce, Juliette began personal training in 2023. She has set four USPA South Carolina powerlifting records, earned multiple bodybuilding class wins, and won the Fit Model division at the Ben Weider Natural Pro Qualifier. Her accomplishments also include a class win at the Arnold Amateur and earning professional status at the NPC North American Championships. A former Mrs. South Carolina Earth, she also offers pageant fitness preparation, stage presentation, and Bikini and Fit Model posing coaching.",
+    image: julietteImg,
+    slug: 'juliette-pierce',
+    quote: "Train with intention. Build strength for life.",
+    bannerImage: julietteBanner,
+    cards: [
+      {
+        title: "Women's Strength, Health & Fitness",
+        description: 'Build strength, improve body composition, and feel confident with training built around your stage of life, from pregnancy and postpartum through perimenopause and menopause.',
+        icon: Dumbbell
+      },
+      {
+        title: 'Nutrition & Diet',
+        description: 'Pair your training with practical nutrition guidance that supports muscle, energy, and body-composition goals without extreme restriction.',
+        icon: Apple
+      },
+      {
+        title: 'Pageant & Competition Prep',
+        description: 'Prepare for the stage with structured training, nutrition, and timing drawn from pro-level bodybuilding and pageant experience.',
+        icon: Trophy
+      },
+      {
+        title: 'Posing & Stage Presentation',
+        description: 'Refine Bikini and Fit Model posing, walking, and presentation so your work in the gym shows the moment you step on stage.',
+        icon: Sparkles
+      }
+    ]
+  },
+  {
+    name: 'Evan Pierce',
+    title: 'Professional Boxer & Coach',
+    bio: "Evan Pierce is a professional boxer and coach who works with clients of all ages and ability levels, from beginners learning their first combinations to experienced fighters preparing for competition. His coaching helps clients develop sound technique, improve conditioning, and build confidence, discipline, and mental toughness. Raised in Brit's Brothers Gym, founded by his father, Olly Pierce, Evan competed as an amateur boxer from 2019 to 2024 before turning professional. His training covers fundamentals, footwork, defense, mitt work, ring awareness, and fight preparation.",
+    image: evanImg,
+    slug: 'evan-pierce',
+    quote: "Fear and truth cannot be together.",
+    bannerImage: evanBanner,
+    cards: [
+      {
+        title: 'Boxing Fundamentals & Technique',
+        description: "Learn stance, combinations, and clean technique from the ground up, whether it's your first lesson or a reset of old habits.",
+        icon: Target
+      },
+      {
+        title: 'Footwork, Defense & Ring IQ',
+        description: 'Develop footwork, head movement, defense, and ring awareness so you can control distance and stay composed under pressure.',
+        icon: Shield
+      },
+      {
+        title: 'Conditioning & Athletic Development',
+        description: 'Get in fighting shape with mitt work, heavy-bag rounds, and conditioning that builds endurance, power, and discipline.',
+        icon: Flame
+      },
+      {
+        title: 'Sparring & Fight Preparation',
+        description: 'Sharpen your game for competition with sparring, fight-specific coaching, and a plan built around your bout.',
+        icon: Trophy
       }
     ]
   },
