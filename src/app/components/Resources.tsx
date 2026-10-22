@@ -1,4 +1,5 @@
-import { FileText } from 'lucide-react';
+import { FileText, Calculator } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import nutritionPdf from '../../imports/20-Day-Nutrition-Plan.pdf';
 
 type ResourcesProps = {
@@ -28,7 +29,7 @@ export function Resources({ includeSectionHeader = true }: ResourcesProps) {
           </div>
         ) : null}
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8 overflow-hidden">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 overflow-hidden">
           {/* Video 1 */}
           <div className="bg-[#1c1c1e] min-w-0">
             <div className="relative aspect-video bg-[#121214] overflow-hidden">
@@ -76,6 +77,21 @@ export function Resources({ includeSectionHeader = true }: ResourcesProps) {
               Download PDF
             </p>
           </a>
+          {/* Macro Calculator Card */}
+          <Link
+            to="/macro-calculator"
+            className="bg-[#1c1c1e] transition-all group hover:bg-[#1c1c1e]/80 flex flex-col items-center justify-center p-8 aspect-video"
+          >
+            <div className="w-20 h-20 bg-[#cc1e23]/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#cc1e23]/30 transition-colors">
+              <Calculator className="text-[#cc1e23]" size={40} />
+            </div>
+            <h3 className="text-[#fdfdff] text-2xl mb-4 tracking-wider text-center" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
+              MACRO CALCULATOR
+            </h3>
+            <p className="text-[#a7a7ad] text-sm tracking-widest uppercase text-center" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}>
+              Get Your Numbers
+            </p>
+          </Link>
         </div>
       </div>
     </section>

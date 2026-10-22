@@ -15,6 +15,7 @@ import { PowerliftingBlogPage } from './pages/PowerliftingBlogPage';
 import { BodybuildingBlogPage } from './pages/BodybuildingBlogPage';
 import { WeightLossBlogPage } from './pages/WeightLossBlogPage';
 import { ResourcesPage } from './pages/ResourcesPage';
+import { MacroCalculatorPage } from './pages/MacroCalculatorPage';
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/consultation" element={<ConsultationPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/macro-calculator" element={<MacroCalculatorPage />} />
           <Route path="/blog/powerlifting.html" element={<PowerliftingBlogPage />} />
           <Route path="/blog/bodybuilding.html" element={<BodybuildingBlogPage />} />
           <Route path="/blog/weight-loss.html" element={<WeightLossBlogPage />} />
