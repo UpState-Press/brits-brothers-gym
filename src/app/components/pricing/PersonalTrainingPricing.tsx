@@ -9,7 +9,7 @@ export function PersonalTrainingPricing() {
           </h4>
           <div className="mb-2">
             <span className="text-[#fdfdff] text-4xl" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-              $50
+              $60
             </span>
           </div>
           <p className="text-[#a7a7ad] text-xs uppercase tracking-wider" style={{ fontFamily: "'Work Sans', sans-serif" }}>
@@ -42,7 +42,7 @@ export function PersonalTrainingPricing() {
           </h4>
           <div className="mb-2">
             <span className="text-[#fdfdff] text-4xl" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-              $195
+              $245
             </span>
           </div>
           <p className="text-[#a7a7ad] text-xs uppercase tracking-wider" style={{ fontFamily: "'Work Sans', sans-serif" }}>
@@ -75,7 +75,7 @@ export function PersonalTrainingPricing() {
           </h4>
           <div className="mb-2">
             <span className="text-[#fdfdff] text-4xl" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-              $315
+              $395
             </span>
           </div>
           <p className="text-[#a7a7ad] text-xs uppercase tracking-wider" style={{ fontFamily: "'Work Sans', sans-serif" }}>
@@ -112,7 +112,7 @@ export function PersonalTrainingPricing() {
           </h4>
           <div className="mb-2">
             <span className="text-[#fdfdff] text-4xl" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-              $499
+              $595
             </span>
           </div>
           <p className="text-[#a7a7ad] text-xs uppercase tracking-wider" style={{ fontFamily: "'Work Sans', sans-serif" }}>
@@ -145,7 +145,7 @@ export function PersonalTrainingPricing() {
           </h4>
           <div className="mb-2">
             <span className="text-[#fdfdff] text-4xl" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-              $650
+              $750
             </span>
           </div>
           <p className="text-[#a7a7ad] text-xs uppercase tracking-wider" style={{ fontFamily: "'Work Sans', sans-serif" }}>
@@ -170,38 +170,6 @@ export function PersonalTrainingPricing() {
         </a>
       </div>
 
-      {/* 6 Week - Payment Plan */}
-      <div className="bg-[#1c1c1e] p-8 hover:bg-[#1c1c1e]/80 transition-all">
-        <div className="text-center mb-6">
-          <h4 className="text-[#fdfdff] text-xl mb-4 tracking-wider h-14 flex items-center justify-center" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-            6 Week Challenge
-          </h4>
-          <div className="mb-2">
-            <span className="text-[#fdfdff] text-3xl" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-              $162.50
-            </span>
-          </div>
-          <p className="text-[#a7a7ad] text-xs uppercase tracking-wider" style={{ fontFamily: "'Work Sans', sans-serif" }}>
-            4 Weekly Payments
-          </p>
-        </div>
-
-        <div className="text-center mb-6">
-          <p className="text-[#cc1e23] text-sm" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}>
-            Includes gym access
-          </p>
-        </div>
-
-        <a
-          href="https://app.moonclerk.com/pay/190ig8ay7e44"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block text-center bg-[#fdfdff]/10 text-[#fdfdff] px-6 py-3 hover:bg-[#cc1e23] transition-all text-sm tracking-wider"
-          style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}
-        >
-          Start Challenge
-        </a>
-      </div>
     </div>
   );
 }

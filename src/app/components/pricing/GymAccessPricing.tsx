@@ -15,13 +15,10 @@ export function GymAccessPricing() {
           </h4>
           <div className="mb-2">
             <span className="text-[#fdfdff] text-5xl" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-              $49
+              $59
             </span>
             <sup className="text-2xl">.95</sup>
           </div>
-          <p className="text-[#fdfdff]/80 line-through text-sm mb-2" style={{ fontFamily: "'Work Sans', sans-serif" }}>
-            Normally $59.95
-          </p>
           <p className="text-[#fdfdff] text-sm" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
             per month
           </p>
@@ -61,7 +58,7 @@ export function GymAccessPricing() {
           </h4>
           <div className="mb-2">
             <span className="text-[#fdfdff] text-5xl" style={{ fontFamily: "'poster-gothic-atf', sans-serif" }}>
-              $24
+              $29
             </span>
             <sup className="text-2xl">.95</sup>
           </div>
