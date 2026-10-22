@@ -25,6 +25,13 @@ export function TrainersPage() {
           <p className="text-[#a7a7ad] text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
             Brit's Brothers: it's not your typical fitness club
           </p>
+          <Link
+            to="/find-your-trainer"
+            className="inline-block mt-10 bg-[#cc1e23] hover:bg-[#a8181d] text-[#fdfdff] px-8 py-4 text-sm tracking-[0.2em] uppercase transition-colors"
+            style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}
+          >
+            Not sure who to pick? Take the 90-second quiz
+          </Link>
         </div>
 
         {/* Bottom Divider */}

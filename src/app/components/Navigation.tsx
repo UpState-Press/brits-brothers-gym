@@ -47,6 +47,13 @@ export function Navigation() {
 
               {isTrainersOpen && (
                 <div className="absolute top-full left-0 bg-[#1c1c1e] border border-[#fdfdff]/10 min-w-[200px] py-2">
+                  <Link
+                    to="/find-your-trainer"
+                    className="block px-6 py-3 text-[#cc1e23] hover:text-[#fdfdff] hover:bg-[#121214] transition-colors text-sm tracking-wide uppercase border-b border-[#fdfdff]/10 mb-1"
+                    style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}
+                  >
+                    Find Your Trainer
+                  </Link>
                   {trainerPages.map((trainer) => (
                     <Link
                       key={trainer.slug}
@@ -113,6 +120,14 @@ export function Navigation() {
                 </div>
                 {isTrainersOpen && (
                   <div className="pl-4 mt-2 flex flex-col gap-2">
+                    <Link
+                      to="/find-your-trainer"
+                      onClick={() => setIsOpen(false)}
+                      className="text-[#cc1e23] hover:text-[#fdfdff] transition-colors text-sm tracking-wide uppercase"
+                      style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 700 }}
+                    >
+                      Find Your Trainer
+                    </Link>
                     {trainerPages.map((trainer) => (
                       <Link
                         key={trainer.slug}
