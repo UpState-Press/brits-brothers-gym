@@ -1,14 +1,12 @@
 import { Dumbbell, Activity, TrendingDown, Gauge, Sparkles, TrendingUp, Brain, Zap, Apple, HeartPulse, Leaf, Target, Shield, Flame, Trophy } from 'lucide-react';
 import ollyImg from '../assets/olly-pierce.webp';
 import jakeImg from '../assets/jake-henderson.webp';
-import guyImg from '../assets/guy-mosley.webp';
 import ryanImg from '../assets/ryan-mccaffery.webp';
 import haileyImg from '../assets/hailey-peterson.webp';
 import heatherImg from '../assets/heather-hetager.webp';
 import julietteImg from '../assets/juliette-pierce.webp';
 import evanImg from '../assets/evan-pierce.webp';
 import jakeBanner from '../imports/banner-12.jpg';
-import guyBanner from '../imports/banner-10.jpg';
 import ryanBanner from '../assets/banner-ryan-mccaffery.webp';
 import haileyBanner from '../assets/banner-hailey-peterson.webp';
 import heatherBanner from '../assets/banner-heather-hetager.webp';
@@ -93,47 +91,6 @@ export const trainersData: Trainer[] = [
       {
         quote: "I was hesitant at first because I went to school to be a personal trainer and figured I could just do it myself. I decided to work with Jake because he has a lot of experience I did not have. He has been everything I could have hoped for in a coach and mentor, and now I consider him a big brother. Forever grateful for Jake and the whole Brits Brothers family.",
         name: 'Mike Thompson'
-      }
-    ]
-  },
-  {
-    name: 'Guy Mosley',
-    title: 'Personal Trainer & Mo Better Fit Coach',
-    bio: "Guy Mosley worked for many years as the strength coach at Wade Hampton High School and won the Wade Hampton Coach of the Year Award in 2010. From 1999–2013 he worked with the Greenville Fire Department, training firefighters and police officers in strength and conditioning. Over the course of his career he has become a World Champion Power Lifter, Pan-Am Games Champion, and Battle of the Countries Champion.",
-    image: guyImg,
-    slug: 'guy-mosley',
-    quote: "Your limits are just stories you tell yourself. Let's rewrite them.",
-    bannerImage: guyBanner,
-    cards: [
-      {
-        title: 'Speed',
-        description: 'speed drills, interval training, and agility exercises to improve your overall speed and acceleration',
-        icon: Gauge
-      },
-      {
-        title: 'Power',
-        description: 'plyometrics, Olympic lifts, medicine ball throws, and resistance training to enhance your power output',
-        icon: Dumbbell
-      },
-      {
-        title: 'Explosion',
-        description: 'box jumps, kettlebell swings, jump squats, or medicine ball slams, to improve your explosive capabilities',
-        icon: Sparkles
-      },
-      {
-        title: 'Weight Gain',
-        description: 'lifting weights, performing compound exercises, and optimizing your nutrition to support muscle growth',
-        icon: TrendingUp
-      },
-      {
-        title: 'Strength',
-        description: 'squats, deadlifts, bench presses, and pull-ups, ensuring proper form and technique to maximize your results',
-        icon: Activity
-      },
-      {
-        title: 'Mental Focus',
-        description: 'incorporate mindfulness techniques, visualization exercises, and specific training protocols to improve your mental focus',
-        icon: Brain
       }
     ]
   },

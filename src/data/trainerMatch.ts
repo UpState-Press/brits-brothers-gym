@@ -42,13 +42,6 @@ export const MATCH_TRAINERS: MatchTrainer[] = [
     hit: { strength: 'Powerlifting & Strongman', athletic: 'Athletic Performance', longevity: 'Mobility & Longevity' },
   },
   {
-    slug: 'guy-mosley', name: 'Guy Mosley', group: 'm', active: true,
-    title: 'Personal Trainer & Mo Better Fit Coach',
-    v: { strength: 2, size: 2, lean: 0, athletic: 3, longevity: 0, support: 1 },
-    cards: ['Speed', 'Power', 'Explosion', 'Weight Gain', 'Strength', 'Mental Focus'],
-    hit: { athletic: 'Speed, Power and Explosion', strength: 'Strength', size: 'Weight Gain' },
-  },
-  {
     slug: 'ryan-mccaffery', name: 'Ryan Mccaffery', group: 'm', active: true,
     title: 'Personal Trainer',
     v: { strength: 1, size: 3, lean: 3, athletic: 2, longevity: 0, support: 1 },
