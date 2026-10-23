@@ -23,7 +23,7 @@ export function Navigation() {
                 BRITS BROTHERS
               </div>
               <div className="text-[#a7a7ad] text-[10px] md:text-xs tracking-widest" style={{ fontFamily: "'ltc-goudy-text-pro-shaded', serif" }}>
-                Est. Greenville
+                Est. 1994
               </div>
             </div>
           </Link>
