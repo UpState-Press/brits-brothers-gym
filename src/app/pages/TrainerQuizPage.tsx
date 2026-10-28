@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { siteConfig, getPublicSiteOrigin } from '../../config/siteConfig';
 import { SEO } from '../components/SEO';
 import { getTrainerBySlug } from '../../data/trainers';
+import { MarketingConsentCheckbox, applyMarketingEmailConsent } from '../components/MarketingConsentCheckbox';
 import { AXES, QUESTIONS, MATCH_TRAINERS, scoreAnswers, listify, type MatchResult } from '../../data/trainerMatch';
 
 const WORDS = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'];
@@ -75,6 +76,7 @@ export function TrainerQuizPage() {
     const form = event.currentTarget;
     const data = new FormData(form);
     data.set('_subject', FORM_SUBJECT);
+    applyMarketingEmailConsent(data);
     data.set('trainer_match', result.ranked[0]?.t.name ?? '');
     data.set('trainer_match_fit', `${Math.round((result.ranked[0]?.fit ?? 0) * 100)}%`);
     data.set('runner_up', result.ranked[1]?.t.name ?? '');
@@ -244,6 +246,7 @@ export function TrainerQuizPage() {
                   </label>
                   <input id="tq-phone" name="phone" type="tel" autoComplete="tel" className={fieldCls} />
                 </div>
+                <MarketingConsentCheckbox id="tq-marketing-email-consent" />
                 <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
                   <button type="submit" className={btn} disabled={formStatus === 'sending'} style={{ fontWeight: 700 }}>

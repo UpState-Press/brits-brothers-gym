@@ -6,6 +6,7 @@ import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b1
 import { FinalCTA } from '../components/FinalCTA';
 import { FacilityHours } from '../components/FacilityHours';
 import { Location } from '../components/Location';
+import { MarketingConsentCheckbox, applyMarketingEmailConsent } from '../components/MarketingConsentCheckbox';
 
 const FORM_SUBJECT = "New website lead from Brit's Brothers Gym";
 const FORM_ENDPOINT = import.meta.env.VITE_CONTACT_FORM_ENDPOINT;
@@ -32,6 +33,7 @@ export function ContactPage() {
     const form = event.currentTarget;
     const formData = new FormData(form);
     formData.set('_subject', FORM_SUBJECT);
+    applyMarketingEmailConsent(formData);
 
     setFormStatus('sending');
 
@@ -254,6 +256,8 @@ export function ContactPage() {
                     style={{ fontFamily: "'Work Sans', sans-serif" }}
                   />
                 </div>
+
+                <MarketingConsentCheckbox id="contact-marketing-email-consent" />
 
                 {formStatus === 'success' ? (
                   <p
