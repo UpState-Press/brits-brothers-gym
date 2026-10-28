@@ -7,6 +7,7 @@ import splatterDivider from 'figma:asset/185cb69eec51df2a8ca706e784867b4ab9e15b1
 import heroImage from 'figma:asset/b9998cd4dac15b527e6a0d9dcc4f633747e64dd4.webp';
 import { FinalCTA } from '../components/FinalCTA';
 import { Location } from '../components/Location';
+import { MarketingConsentCheckbox, applyMarketingEmailConsent } from '../components/MarketingConsentCheckbox';
 import jakeOdumImg from '../../imports/jake-odum.jpg';
 import lilyWikoffImg from '../../imports/lily-wikoff.jpg';
 import ollyImg from '../../assets/olly-pierce.webp';
@@ -102,6 +103,7 @@ export function ConsultationPage() {
     const form = event.currentTarget;
     const formData = new FormData(form);
     formData.set('_subject', FORM_SUBJECT);
+    applyMarketingEmailConsent(formData);
 
     setFormStatus('sending');
 
@@ -429,6 +431,8 @@ export function ConsultationPage() {
                   placeholder="Goals, injuries, what you have tried before, times that suit you."
                 />
               </div>
+
+              <MarketingConsentCheckbox id="consult-marketing-email-consent" />
 
               {formStatus === 'success' ? (
                 <p className="text-[#fdfdff] text-sm leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif", fontWeight: 500 }} role="status">
