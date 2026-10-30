@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { trackPageView } from '../../lib/analytics';
+import { captureLeadSource } from '../../lib/leadSource';
 
 /**
  * Fires GA4 page_view on React Router navigations.
@@ -10,6 +11,10 @@ import { trackPageView } from '../../lib/analytics';
 export function RouteAnalytics() {
   const { pathname, search, hash } = useLocation();
   const lastTrackedPath = useRef<string | null>(null);
+
+  useEffect(() => {
+    captureLeadSource(search);
+  }, [search]);
 
   useEffect(() => {
     const pagePath = `${pathname}${search}${hash}`;

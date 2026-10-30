@@ -8,6 +8,7 @@ import heroImage from 'figma:asset/b9998cd4dac15b527e6a0d9dcc4f633747e64dd4.webp
 import { FinalCTA } from '../components/FinalCTA';
 import { Location } from '../components/Location';
 import { MarketingConsentCheckbox, applyMarketingEmailConsent } from '../components/MarketingConsentCheckbox';
+import { readLeadSource, leadSourceLabel } from '../../lib/leadSource';
 import jakeOdumImg from '../../imports/jake-odum.jpg';
 import lilyWikoffImg from '../../imports/lily-wikoff.jpg';
 import ollyImg from '../../assets/olly-pierce.webp';
@@ -104,6 +105,25 @@ export function ConsultationPage() {
     const formData = new FormData(form);
     formData.set('_subject', FORM_SUBJECT);
     applyMarketingEmailConsent(formData);
+
+    // Credit the booking to whoever sent the visitor (UpState nurture links carry utm_source=upstate).
+    const leadSource = readLeadSource();
+    if (leadSource) formData.set('lead_source', leadSourceLabel(leadSource));
+
+    // Also record it in GHL. Fire and forget: never blocks or breaks Olly's copy.
+    if (!formData.get('_gotcha')) {
+      fetch('/api/eval-lead', {
+        method: 'POST',
+        keepalive: true,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: String(formData.get('name') ?? ''),
+          email: String(formData.get('email') ?? ''),
+          phone: String(formData.get('phone') ?? ''),
+          leadSource,
+        }),
+      }).catch(() => {});
+    }
 
     setFormStatus('sending');
 
