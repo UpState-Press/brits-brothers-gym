@@ -71,6 +71,7 @@ export function MacroCalculatorPage() {
             renderResults={(resultsNode) => (
               <ToolGate
                 source="macro-calculator"
+                leadEndpoint="/api/macro-lead"
                 payload={snapshot ? toPayload(snapshot) : undefined}
                 heading="Your Target Is Ready"
                 description="Add your first name and email to see your daily calories and macros. We receive your numbers along with your email."

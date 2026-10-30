@@ -52,6 +52,8 @@ export type ToolGatePayload = Record<string, string | number | boolean | null | 
 export interface ToolGateProps {
   source: string;
   payload?: ToolGatePayload;
+  /** Optional second destination (our own API). Fire and forget, never blocks the results. */
+  leadEndpoint?: string;
   children: ReactNode;
   heading?: string;
   description?: string;
@@ -62,6 +64,7 @@ type Status = 'idle' | 'sending' | 'error';
 export function ToolGate({
   source,
   payload,
+  leadEndpoint,
   children,
   heading = 'See Your Results',
   description = 'Add your first name and email to see them.',
@@ -140,6 +143,15 @@ export function ToolGate({
     data.set('source', source);
 
     setStatus('sending');
+
+    if (leadEndpoint) {
+      fetch(leadEndpoint, {
+        method: 'POST',
+        keepalive: true,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ source, name: name.trim(), email: email.trim(), consent: true, payload }),
+      }).catch(() => {});
+    }
 
     try {
       const response = await fetch(FORM_ENDPOINT, {
