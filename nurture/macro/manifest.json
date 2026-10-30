@@ -1,0 +1,37 @@
+[
+  {
+    "n": 1,
+    "day": 0,
+    "name": "UpState Macro 1: Results card",
+    "subject": "Your macros, {{contact.first_name}}",
+    "preheader": "Your daily calories plus protein, carbs and fat, built around how you train."
+  },
+  {
+    "n": 2,
+    "day": 2,
+    "name": "UpState Macro 2: Protein first",
+    "subject": "The one number to hit first",
+    "preheader": "Protein protects your strength. Here is how to hit it without overthinking it."
+  },
+  {
+    "n": 3,
+    "day": 5,
+    "name": "UpState Macro 3: First three weeks",
+    "subject": "How to tell if your numbers are working",
+    "preheader": "How to tell if your numbers are working, and when to change them."
+  },
+  {
+    "n": 4,
+    "day": 9,
+    "name": "UpState Macro 4: Find your coach",
+    "subject": "Which coach fits you?",
+    "preheader": "Numbers get you started. The right coach gets you further."
+  },
+  {
+    "n": 5,
+    "day": 14,
+    "name": "UpState Macro 5: Free evaluation",
+    "subject": "30 minutes at the gym, on us",
+    "preheader": "A free 30 minute evaluation at the gym. No cost, no contract."
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "synced": "2026-10-30",
+  "by": "Johnny 5 in a session with Jerry",
+  "note": "sha256 of nurture/macro/dist/emailN.body.html as pasted into the GHL workflow UpState | Macro Calculator Nurture",
+  "emails": {
+    "email1": "e1595f0d6a59de291f353650dd246a11046c89f60427737ed1bd3b7d138c7410",
+    "email2": "56141a3d4cfa50cb67b9fbfbad189fa85215ceb0051de6076c77f1affded629b",
+    "email3": "b0a0895894c1c29d5f87103d3d84eeb81e804b6b52790614441adcec91b2d26e",
+    "email4": "d0ade9ab21a2332b0928646f3e7057a0bdb4f78b2df39deaf7b143926491e50c",
+    "email5": "9fcbf86436c149df4cf8b111586f765cc0d3f60f7c8e9cd9ade00ad4f4cfb18d"
+  }
+}

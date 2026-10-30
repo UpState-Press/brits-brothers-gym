@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prerender.mjs",
+    "build": "node scripts/check-trainer-refs.mjs && vite build && node scripts/prerender.mjs",
     "build:spa": "vite build",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "check:trainers": "node scripts/check-trainer-refs.mjs",
+    "build:nurture": "python3 nurture/macro/build.py"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

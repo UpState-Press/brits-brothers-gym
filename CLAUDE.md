@@ -73,28 +73,36 @@ Every route must exist in App.tsx, prerender-routes.json, AND public/sitemap.xml
 
 ```
 /                           Homepage
-/contact                    Contact form + location/hours
 /membership                 Pricing and membership options
 /trainers                   Trainer listing
-/trainers/jake-henderson    Trainer detail
-/trainers/guy-mosley        Trainer detail
+/trainers/:slug             Trainer detail, one per slug in src/data/trainers.ts
+/find-your-trainer          Trainer match quiz (src/data/trainerMatch.ts)
 /testimonials               Testimonials
+/contact                    Contact form + location/hours
+/consultation               Free evaluation form (Formspree + /api/eval-lead)
 /resources                  Resources hub
+/macro-calculator           Macro calculator (Formspree + /api/macro-lead)
 /blog/powerlifting.html     Legacy SEO authority page (recovered)
 /blog/bodybuilding.html     Legacy SEO authority page (recovered)
 /blog/weight-loss.html      Legacy SEO authority page (recovered)
+*                           404 page (NotFoundPage, noindex)
 ```
+
+Current trainer slugs live in prerender-routes.json. Do not copy the list here; it goes stale.
 
 ---
 
 ## Redirects (vercel.json)
 
 ```
-/programs/boxing            → /                        (301, boxing removed)
-/boxing/                    → /                        (301, legacy)
-/trainers/jake_henderson/   → /trainers/jake-henderson (301)
-/trainers/guy_mosley/       → /trainers/guy-mosley     (301)
+/programs/boxing, /boxing            -> /                        (301, boxing removed)
+/trainers/jake_henderson             -> /trainers/jake-henderson (301)
+/trainers/guy-mosley, guy_mosley     -> /trainers                (301, Guy left Oct 2026)
+/macros-calculator, /macros, /macro, /calculator -> /macro-calculator (301)
+/membership/, /contact/, /testimonials/ -> no trailing slash     (301)
 ```
+
+The SPA rewrite is `/((?!api/).*)` -> /index.html so /api/* reaches the serverless functions.
 
 ---
 
@@ -115,23 +123,30 @@ Student Program:            https://app.moonclerk.com/pay/jgowzl1n5jy
 
 ---
 
-## Trainers (from live site)
+## Trainers
 
-```
-Olly Pierce      — Owner & Head Coach
-Kevin Bain       — Personal Trainer
-Jake Henderson   — Personal Trainer  (route: /trainers/jake-henderson)
-Guy Mosley       — Personal Trainer  (route: /trainers/guy-mosley)
-Evan Pierce      — Cardio Boxing & Yoga
-```
+Source of truth: `src/data/trainers.ts` (profiles) and `src/data/trainerMatch.ts` (quiz pool).
+As of Oct 30, 2026: Olly Pierce (owner, no profile page), Jake Henderson, Ryan Mccaffery,
+Hailey Peterson, Heather Hetager, Juliette Pierce, Evan Pierce (profile live, held out of the
+quiz until boxing is ruled on). Guy Mosley left Oct 30, 2026.
+
+Before any trainer change, read "Trainer changes" below.
 
 ---
 
 ## Integrations
 
 - **Formspree endpoint:** stored in Vercel env var `VITE_CONTACT_FORM_ENDPOINT`
-  — never hardcode this value; always reference `import.meta.env.VITE_CONTACT_FORM_ENDPOINT`
-  — after changing this env var in Vercel, redeploy
+  - never hardcode this value; always reference `import.meta.env.VITE_CONTACT_FORM_ENDPOINT`
+  - after changing this env var in Vercel, redeploy
+  - Formspree emails go to Olly. Every form keeps sending to Formspree.
+- **GHL (GoHighLevel) Brits sub-account:** location `vmfZgRdAoZXbZA38iuln`
+  - `api/macro-lead.js` and `api/eval-lead.js` write contacts and tags to GHL
+  - token is Vercel env var `GHL_WEBSITE_TOKEN`, **Production only**, so previews never write to Olly's CRM
+  - without the token both functions return 204 and do nothing
+  - UpState's macro nurture runs in GHL. See `nurture/macro/README.md`
+- **Lead source:** `src/lib/leadSource.ts` keeps a 30 day first touch from UTMs. UpState links use
+  `utm_source=upstate`. That is how UpState gets credit for evaluations its nurture brings in.
 - **GA4 ID:** G-9TZCZP31QC
 - **Google Search Console:** domain property verified via DNS TXT record
 - **Sitemap submitted:** https://www.britsbrothersgym.com/sitemap.xml
@@ -153,7 +168,8 @@ Format: JPG (not SVG — SVG does not preview in iMessage/social)
 ```bash
 npm install
 npm run optimize:images     # run before build if new images were added
-npm run build               # runs vite build + prerender pipeline
+npm run build:nurture       # only if nurture copy or coaches.json changed
+npm run build               # trainer check + vite build + prerender pipeline
 git add .
 git commit -m "Description"
 git push                    # triggers Vercel auto-deploy
@@ -167,12 +183,57 @@ git push                    # triggers Vercel auto-deploy
 2. **Always run** `npm run build` after any code change and confirm prerender output succeeds before committing.
 3. **Never hardcode** business phone, email, address, or canonical URLs outside of `siteConfig.ts` — reference the config.
 4. **Never hardcode** the Formspree endpoint — always use `import.meta.env.VITE_CONTACT_FORM_ENDPOINT`.
-5. **Never commit** `dist/`, `node_modules/`, `.env`, or `.env.local`.
+5. **Never commit** `dist/`, `node_modules/`, `.env`, or `.env.local`. One exception: `nurture/macro/dist/` is committed on purpose.
 6. **When adding a new page:** add it to App.tsx, prerender-routes.json, AND public/sitemap.xml — all three, never just one.
 7. **When adding a legacy recovery page:** follow the authority-page pattern (H1, intro, who it's for, internal links to /trainers, /membership, /contact, /resources, and related blog pages, CTA).
 8. **Never add** a CMS, markdown engine, RSS feed, or new package dependencies without explicit instruction.
 9. **Payment links** must not be changed without explicit confirmation — they are live transaction URLs.
 10. **Canonical URLs** must always be clean paths with no query strings.
+11. **Trainer changes touch more than the trainer page.** Adding, removing, renaming or pausing a trainer is explicit instruction to edit every file in the "Trainer changes" checklist below, and only those. Do the whole checklist or none of it.
+12. **`npm run build` runs `scripts/check-trainer-refs.mjs` first.** If it fails, fix what it names. Do not edit the check to make it pass, except to add a departed trainer to its `RETIRED` list.
+13. **If the build prints `GHL SYNC NEEDED`,** the live nurture emails are out of date and only a human can paste them into GHL. Put `GHL SYNC NEEDED: email N` at the top of your final summary. Your job is not done until you do. You have no GHL access; do not try to get it.
+14. **Never put a trainer's name in nurture copy by hand.** Email 4's coach list comes from `nurture/macro/coaches.json`.
+
+---
+
+## Trainer changes
+
+A trainer's name lives in more places than their page. When Olly adds, drops, renames or pauses
+a coach, all of these move together in one commit:
+
+| # | File | Add a trainer | Remove a trainer | Pause (still on staff, out of the quiz) |
+|---|---|---|---|---|
+| 1 | `src/data/trainers.ts` | add profile + images in `src/assets/` | delete profile and its imports | no change |
+| 2 | `src/data/trainerMatch.ts` | add entry, `active: true` | delete entry | `active: false` |
+| 3 | `prerender-routes.json` | add `/trainers/<slug>` | remove it | no change |
+| 4 | `public/sitemap.xml` | add the `<url>` block | remove it | no change |
+| 5 | `vercel.json` | no change | 301 `/trainers/<slug>` (and `_` and trailing-slash forms) to `/trainers` | no change |
+| 6 | `scripts/check-trainer-refs.mjs` | no change | add them to `RETIRED` | no change |
+| 7 | `nurture/macro/coaches.json` | add `{slug, name, line}` | remove them | remove them |
+| 8 | `nurture/macro/dist/` | `python3 nurture/macro/build.py` | same | same |
+| 9 | GHL workflow email 4 | **human pastes** `dist/email4.body.html` | same | same |
+| 10 | Copy that names coaches | search `src/` for the name and fix any prose | same | same |
+
+Then run `npm run build`. The check fails on any drift between 1 to 8 and warns
+`GHL SYNC NEEDED` for step 9. Report that in your summary (rule 13).
+
+Things that update themselves and need no edit: the quiz's coach count and the /trainers grid. Things that never update themselves: the nurture emails in GHL.
+
+`src/imports/` is legacy reference material from the old site. Leave it alone; the check skips it.
+
+---
+
+## UpState macro nurture
+
+UpState, not Olly, nurtures macro calculator leads through GHL. Full wiring, file list and the
+GHL paste steps: `nurture/macro/README.md`. Short version:
+
+- Copy lives in `nurture/macro/build.py`. Coach list lives in `nurture/macro/coaches.json`.
+- Build with `npm run build:nurture`. Commit `nurture/macro/dist/`.
+- The live emails sit inside the GHL workflow, pasted by hand. Workers cannot update them.
+- `nurture/macro/ghl-live.json` records what is live. Only the person who pasted updates it.
+- Copy rules: no em or en dashes, no "seamless/robust/leverage/unlock/delve/utilize", short
+  sentences, and every CTA keeps the line saying replies reach a real person.
 
 ---
 
@@ -205,6 +266,15 @@ Do not change: routing, styling, component structure, deployment config, prerend
 Run npm run build and confirm prerender succeeds.
 ```
 
+### Add, remove or pause a trainer
+```
+[Add | Remove | Pause] trainer [NAME] ([slug]).
+
+Follow the "Trainer changes" checklist in CLAUDE.md, every row for this change type.
+Run python3 nurture/macro/build.py, then npm run build. Fix anything the trainer check names.
+If the build prints GHL SYNC NEEDED, start your summary with "GHL SYNC NEEDED: email 4".
+```
+
 ### Update business info
 ```
 Update [FIELD] across the project.
@@ -216,3 +286,12 @@ Update siteConfig.ts first, then check LocalBusinessSchema.tsx, SEO.tsx defaults
 Do not change routing, layout, styling, or prerender logic.
 Run npm run build and confirm prerender succeeds.
 ```
+
+---
+
+## Changelog
+
+- v2.0 (2026-10-30, Johnny 5 with Jerry): refreshed routes, redirects, trainers and integrations
+  to match the site. Added rules 11 to 14, the "Trainer changes" checklist, the UpState macro
+  nurture section, `scripts/check-trainer-refs.mjs` in `npm run build`, and the trainer prompt.
+- v1.x: original file.

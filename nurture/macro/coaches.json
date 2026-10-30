@@ -1,0 +1,10 @@
+{
+  "_comment": "Coach list for nurture email 4 (Find your coach). Must match the active trainers in src/data/trainerMatch.ts. scripts/check-trainer-refs.mjs fails the build if they drift.",
+  "coaches": [
+    { "slug": "jake-henderson", "name": "Jake Henderson", "line": "powerlifting, strongman and athletic performance" },
+    { "slug": "ryan-mccaffery", "name": "Ryan Mccaffery", "line": "building muscle and fat loss" },
+    { "slug": "hailey-peterson", "name": "Hailey Peterson", "line": "physique, muscle and nutrition" },
+    { "slug": "heather-hetager", "name": "Heather Hetager", "line": "strength for the long haul, joint-friendly training and yoga" },
+    { "slug": "juliette-pierce", "name": "Juliette Pierce", "line": "women's strength, nutrition and competition prep" }
+  ]
+}

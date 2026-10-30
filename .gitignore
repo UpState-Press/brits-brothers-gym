@@ -2,3 +2,6 @@ node_modules
 dist
 .env
 .env.local
+nurture/macro/preview/
+__pycache__/
+!nurture/macro/dist/
