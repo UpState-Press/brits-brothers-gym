@@ -68,6 +68,46 @@
       "source": "/trainers/guy_mosley/",
       "destination": "/trainers",
       "statusCode": 301
+    },
+    {
+      "source": "/macros-calculator",
+      "destination": "/macro-calculator",
+      "statusCode": 301
+    },
+    {
+      "source": "/macros-calculator/",
+      "destination": "/macro-calculator",
+      "statusCode": 301
+    },
+    {
+      "source": "/macros",
+      "destination": "/macro-calculator",
+      "statusCode": 301
+    },
+    {
+      "source": "/macros/",
+      "destination": "/macro-calculator",
+      "statusCode": 301
+    },
+    {
+      "source": "/macro",
+      "destination": "/macro-calculator",
+      "statusCode": 301
+    },
+    {
+      "source": "/macro/",
+      "destination": "/macro-calculator",
+      "statusCode": 301
+    },
+    {
+      "source": "/calculator",
+      "destination": "/macro-calculator",
+      "statusCode": 301
+    },
+    {
+      "source": "/calculator/",
+      "destination": "/macro-calculator",
+      "statusCode": 301
     }
   ],
   "rewrites": [

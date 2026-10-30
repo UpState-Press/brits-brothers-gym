@@ -26,6 +26,8 @@ interface SEOProps {
   ogDescription?: string;
   canonicalUrl?: string;
   type?: 'website' | 'article';
+  /** Keep this page out of search results (404s and the like). */
+  noindex?: boolean;
 }
 
 export function SEO({
@@ -40,6 +42,7 @@ export function SEO({
   ogDescription,
   canonicalUrl,
   type = 'website',
+  noindex = false,
 }: SEOProps) {
   const siteTitle = fullTitle
     ? fullTitle
@@ -91,7 +94,7 @@ export function SEO({
       <meta name="twitter:image" content={resolvedOgImage} />
 
       {/* Additional SEO */}
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
       <meta name="googlebot" content="index, follow" />
       {canonical ? <link rel="canonical" href={canonical} /> : null}
     </Helmet>
